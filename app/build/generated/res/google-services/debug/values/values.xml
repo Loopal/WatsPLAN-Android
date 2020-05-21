@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="default_web_client_id" translatable="false">595689314949-rog5aph7dumfjunrpm2g6h47fn77p7a0.apps.googleusercontent.com</string>
+    <string name="firebase_database_url" translatable="false">https://watsplan-4c989.firebaseio.com</string>
+    <string name="gcm_defaultSenderId" translatable="false">595689314949</string>
+    <string name="google_api_key" translatable="false">AIzaSyBor5wj_HlmBxHSyYlRv-3RUV7Rvi8gGPo</string>
+    <string name="google_app_id" translatable="false">1:595689314949:android:41cde8eb58a4279eaf67ec</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBor5wj_HlmBxHSyYlRv-3RUV7Rvi8gGPo</string>
+    <string name="google_storage_bucket" translatable="false">watsplan-4c989.appspot.com</string>
+    <string name="project_id" translatable="false">watsplan-4c989</string>
+</resources>
