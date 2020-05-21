@@ -1,0 +1,177 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.wwjz.watsplan"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="24"
+8-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml
+10
+11    <!-- Required permission for App measurement to run. -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:23:5-67
+12-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:23:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:24:5-79
+13-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:24:22-76
+14    <uses-permission android:name="android.permission.WAKE_LOCK" />
+14-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:25:5-68
+14-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:25:22-65
+15    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+15-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:26:5-110
+15-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:26:22-107
+16    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+16-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\295b640cfb42a43161cdddd97830b38a\firebase-iid-20.0.2\AndroidManifest.xml:26:5-82
+16-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\295b640cfb42a43161cdddd97830b38a\firebase-iid-20.0.2\AndroidManifest.xml:26:22-79
+17
+18    <application
+18-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:5:5-20:19
+19        android:allowBackup="true"
+19-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:6:9-35
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.2.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\d776de8f4d89593cf904fdbdb9797308\core-1.2.0\AndroidManifest.xml:24:18-86
+21        android:debuggable="true"
+22        android:icon="@mipmap/ic_launcher"
+22-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:7:9-43
+23        android:label="@string/app_name"
+23-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:8:9-41
+24        android:roundIcon="@mipmap/ic_launcher_round"
+24-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:9:9-54
+25        android:supportsRtl="true"
+25-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:10:9-35
+26        android:testOnly="true"
+27        android:theme="@style/Theme.AppCompat.NoActionBar" >
+27-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:11:9-59
+28        <activity android:name="com.wwjz.watsplan.SplashActivity" >
+28-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:12:9-18:20
+28-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:12:19-49
+29            <intent-filter>
+29-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:13:13-17:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:14:17-69
+30-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:14:25-66
+31
+32                <category android:name="android.intent.category.LAUNCHER" />
+32-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:16:17-77
+32-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:16:27-74
+33            </intent-filter>
+34        </activity>
+35        <activity android:name="com.wwjz.watsplan.MainActivity" />
+35-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:19:9-59
+35-->C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:19:19-47
+36
+37        <receiver
+37-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:29:9-33:20
+38            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+38-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:30:13-85
+39            android:enabled="true"
+39-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:31:13-35
+40            android:exported="false" >
+40-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:32:13-37
+41        </receiver>
+42        <receiver
+42-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:34:9-42:20
+43            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+43-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:35:13-100
+44            android:enabled="true"
+44-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:36:13-35
+45            android:exported="true"
+45-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:37:13-36
+46            android:permission="android.permission.INSTALL_PACKAGES" >
+46-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:38:13-69
+47            <intent-filter>
+47-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:39:13-41:29
+48                <action android:name="com.android.vending.INSTALL_REFERRER" />
+48-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:40:17-79
+48-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:40:25-76
+49            </intent-filter>
+50        </receiver>
+51
+52        <service
+52-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:44:9-47:40
+53            android:name="com.google.android.gms.measurement.AppMeasurementService"
+53-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:45:13-84
+54            android:enabled="true"
+54-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:46:13-35
+55            android:exported="false" />
+55-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:47:13-37
+56        <service
+56-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:48:9-52:72
+57            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+57-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:49:13-87
+58            android:enabled="true"
+58-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:50:13-35
+59            android:exported="false"
+59-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:51:13-37
+60            android:permission="android.permission.BIND_JOB_SERVICE" />
+60-->[com.google.android.gms:play-services-measurement:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\7fbe2c4217ccfaec22a95bb3167c3f02\play-services-measurement-17.2.2\AndroidManifest.xml:52:13-69
+61        <service
+61-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\38dee601a1c1966f256b08772ac17d2b\play-services-measurement-api-17.2.2\AndroidManifest.xml:27:9-33:19
+62            android:name="com.google.firebase.components.ComponentDiscoveryService"
+62-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\38dee601a1c1966f256b08772ac17d2b\play-services-measurement-api-17.2.2\AndroidManifest.xml:28:13-84
+63            android:directBootAware="true"
+63-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\6db76731fd2481e1990f63c23c95b66a\jetified-firebase-common-19.3.0\AndroidManifest.xml:34:13-43
+64            android:exported="false" >
+64-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\38dee601a1c1966f256b08772ac17d2b\play-services-measurement-api-17.2.2\AndroidManifest.xml:29:13-37
+65            <meta-data
+65-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\38dee601a1c1966f256b08772ac17d2b\play-services-measurement-api-17.2.2\AndroidManifest.xml:30:13-32:85
+66                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+66-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\38dee601a1c1966f256b08772ac17d2b\play-services-measurement-api-17.2.2\AndroidManifest.xml:31:17-139
+67                android:value="com.google.firebase.components.ComponentRegistrar" />
+67-->[com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\38dee601a1c1966f256b08772ac17d2b\play-services-measurement-api-17.2.2\AndroidManifest.xml:32:17-82
+68            <meta-data
+68-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\295b640cfb42a43161cdddd97830b38a\firebase-iid-20.0.2\AndroidManifest.xml:32:13-34:85
+69                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+69-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\295b640cfb42a43161cdddd97830b38a\firebase-iid-20.0.2\AndroidManifest.xml:33:17-96
+70                android:value="com.google.firebase.components.ComponentRegistrar" />
+70-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\295b640cfb42a43161cdddd97830b38a\firebase-iid-20.0.2\AndroidManifest.xml:34:17-82
+71        </service>
+72
+73        <receiver
+73-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\295b640cfb42a43161cdddd97830b38a\firebase-iid-20.0.2\AndroidManifest.xml:37:9-44:20
+74            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+74-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\295b640cfb42a43161cdddd97830b38a\firebase-iid-20.0.2\AndroidManifest.xml:38:13-78
+75            android:exported="true"
+75-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\295b640cfb42a43161cdddd97830b38a\firebase-iid-20.0.2\AndroidManifest.xml:39:13-36
+76            android:permission="com.google.android.c2dm.permission.SEND" >
+76-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\295b640cfb42a43161cdddd97830b38a\firebase-iid-20.0.2\AndroidManifest.xml:40:13-73
+77            <intent-filter>
+77-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\295b640cfb42a43161cdddd97830b38a\firebase-iid-20.0.2\AndroidManifest.xml:41:13-43:29
+78                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+78-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\295b640cfb42a43161cdddd97830b38a\firebase-iid-20.0.2\AndroidManifest.xml:42:17-81
+78-->[com.google.firebase:firebase-iid:20.0.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\295b640cfb42a43161cdddd97830b38a\firebase-iid-20.0.2\AndroidManifest.xml:42:25-78
+79            </intent-filter>
+80        </receiver>
+81
+82        <provider
+82-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\6db76731fd2481e1990f63c23c95b66a\jetified-firebase-common-19.3.0\AndroidManifest.xml:26:9-30:39
+83            android:name="com.google.firebase.provider.FirebaseInitProvider"
+83-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\6db76731fd2481e1990f63c23c95b66a\jetified-firebase-common-19.3.0\AndroidManifest.xml:27:13-77
+84            android:authorities="com.wwjz.watsplan.firebaseinitprovider"
+84-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\6db76731fd2481e1990f63c23c95b66a\jetified-firebase-common-19.3.0\AndroidManifest.xml:28:13-72
+85            android:exported="false"
+85-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\6db76731fd2481e1990f63c23c95b66a\jetified-firebase-common-19.3.0\AndroidManifest.xml:29:13-37
+86            android:initOrder="100" />
+86-->[com.google.firebase:firebase-common:19.3.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\6db76731fd2481e1990f63c23c95b66a\jetified-firebase-common-19.3.0\AndroidManifest.xml:30:13-36
+87
+88        <activity
+88-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b820210894f162a40fd1e00d3e607d83\play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
+89            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+89-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b820210894f162a40fd1e00d3e607d83\play-services-base-17.0.0\AndroidManifest.xml:24:13-79
+90            android:exported="false"
+90-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b820210894f162a40fd1e00d3e607d83\play-services-base-17.0.0\AndroidManifest.xml:25:13-37
+91            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+91-->[com.google.android.gms:play-services-base:17.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b820210894f162a40fd1e00d3e607d83\play-services-base-17.0.0\AndroidManifest.xml:26:13-72
+92
+93        <meta-data
+93-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\d3602351c26bcf244180c56a135d20dc\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
+94            android:name="com.google.android.gms.version"
+94-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\d3602351c26bcf244180c56a135d20dc\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
+95            android:value="@integer/google_play_services_version" />
+95-->[com.google.android.gms:play-services-basement:17.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\d3602351c26bcf244180c56a135d20dc\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
+96    </application>
+97
+98</manifest>
