@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "595689314949",
+    "firebase_url": "https://watsplan-4c989.firebaseio.com",
+    "project_id": "watsplan-4c989",
+    "storage_bucket": "watsplan-4c989.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:595689314949:android:41cde8eb58a4279eaf67ec",
+        "android_client_info": {
+          "package_name": "com.wwjz.watsplan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "595689314949-rog5aph7dumfjunrpm2g6h47fn77p7a0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBor5wj_HlmBxHSyYlRv-3RUV7Rvi8gGPo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "595689314949-rog5aph7dumfjunrpm2g6h47fn77p7a0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
