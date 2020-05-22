@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    >
+
+    <group>
+        <item android:id="@+id/nav_home"
+            android:icon="@drawable/home"
+            android:title="Home" />
+    </group>
+
+    <group>
+        <item android:id="@+id/nav_dev"
+            android:icon="@drawable/dev"
+            android:title="Dev" />
+    </group>
+
+</menu>

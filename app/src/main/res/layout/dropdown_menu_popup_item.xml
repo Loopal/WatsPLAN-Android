@@ -3,6 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:background="@color/uwYellow"
+    android:backgroundTint="@color/uwYellow"
     android:padding="5dp"
     android:ellipsize="end"
     android:maxLines="1"

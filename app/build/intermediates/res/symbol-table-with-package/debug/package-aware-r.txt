@@ -49,6 +49,10 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array com_google_android_gms_fonts_certs
+array com_google_android_gms_fonts_certs_dev
+array com_google_android_gms_fonts_certs_prod
+array preloaded_fonts
 attr actionBarDivider
 attr actionBarItemBackground
 attr actionBarPopupTheme
@@ -1491,6 +1495,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable dev
 drawable fui_ic_anonymous_white_24dp
 drawable fui_ic_check_circle_black_128dp
 drawable fui_ic_facebook_white_22dp
@@ -1508,6 +1513,7 @@ drawable fui_idp_button_background_phone
 drawable fui_idp_button_background_twitter
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
+drawable home
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_mtrl_checked_circle
@@ -1547,6 +1553,8 @@ drawable notify_panel_notification_icon_bg
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
+drawable uwlogo
+font droid_sans
 id ALT
 id BOTTOM_END
 id BOTTOM_START
@@ -1640,7 +1648,6 @@ id button_resend_email
 id button_sign_in
 id cancel_action
 id cancel_button
-id card
 id center
 id center_horizontal
 id center_vertical
@@ -1666,7 +1673,10 @@ id content
 id contentPanel
 id coordinator
 id country_list
+id create
 id createButton
+id createCard
+id createSubmit
 id cross_device_linking_body
 id custom
 id customPanel
@@ -1684,6 +1694,7 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id drawer_layout
 id dropdown_menu
 id dynamic
 id edit_phone_number
@@ -1701,12 +1712,12 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id faculty_dropdown
 id fade
 id fill
 id fill_horizontal
 id fill_vertical
 id filled
-id filled_exposed_dropdown
 id fitToContents
 id fixed
 id floating
@@ -1743,9 +1754,10 @@ id light
 id line1
 id line3
 id linearLayout
-id linearLayout2
 id listMode
 id list_item
+id load
+id loadSubmit
 id logo
 id mFixed
 id mFlexible
@@ -1784,6 +1796,9 @@ id mtrl_picker_title_text
 id multiply
 id name
 id name_layout
+id nav_dev
+id nav_home
+id navigation
 id navigation_header_container
 id never
 id noScroll
@@ -1809,6 +1824,7 @@ id phone_button
 id phone_layout
 id phone_number
 id pin
+id program_dropdown
 id progress_circular
 id progress_horizontal
 id radio
@@ -1821,6 +1837,8 @@ id root
 id rounded
 id row_index_key
 id sFixed
+id saveCard
+id save_dropdown
 id save_non_transition_alpha
 id save_overlay_view
 id scale
@@ -2067,6 +2085,7 @@ layout mtrl_picker_header_title_text
 layout mtrl_picker_header_toggle
 layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
+layout nav_header
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action
@@ -2099,6 +2118,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu drawer_menu
 mipmap ic_launcher
 mipmap ic_launcher_round
 plurals fui_error_weak_password
