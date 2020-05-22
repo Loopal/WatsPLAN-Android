@@ -1,0 +1,45 @@
+package com.wwjz.watsplan
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_control.*
+
+class ControlActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_control)
+
+        submitButton.setOnClickListener{
+            submit()
+        }
+    }
+
+
+    fun submit() {
+        val db = FirebaseFirestore.getInstance()
+        val major = hashMapOf(
+            "Communication1" to Communication1.text.toString().split(";").toList(),
+            "Communication2" to Communication2.text.toString().split(";").toList(),
+            "mFixed" to mFixed.text.toString().split(";").toList(),
+            "mFlexible" to mFlexible.text.toString().split(";").toList(),
+            "sFixed" to sFixed.text.toString().split(";").toList()
+        )
+
+        db.collection("Majors")
+            .document(name.text.toString())
+            .set(major)
+            .addOnSuccessListener {
+                Log.d("sss", "DocumentSnapshot successfully written!")
+                Snackbar.make(submitButton,"DocumentSnapshot successfully written!",Snackbar.LENGTH_LONG).show()
+            }
+            .addOnFailureListener { e ->
+                Log.w("sss", "Error writing document", e)
+                Snackbar.make(submitButton,"Error writing document",Snackbar.LENGTH_LONG).show()
+            }
+
+    }
+}
