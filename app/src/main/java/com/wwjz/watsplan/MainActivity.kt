@@ -101,6 +101,12 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+
+        updateDepthRequire.setOnClickListener {
+            val intent = Intent()
+            intent.setClass(this, DepthControlActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }

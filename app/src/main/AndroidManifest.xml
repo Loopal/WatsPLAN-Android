@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ControlActivity"></activity>
+        <activity
+            android:name=".DepthControlActivity"
+            android:label="@string/title_activity_depth_control"
+            android:theme="@style/NoActionBar"></activity>
+        <activity android:name=".ControlActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
