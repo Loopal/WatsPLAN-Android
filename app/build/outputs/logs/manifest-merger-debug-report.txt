@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-23:12
+ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-27:12
 MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\675a64e2bc9826bcb230d56cbcdcf87a\jetified-firebase-ui-auth-5.0.0\AndroidManifest.xml:2:1-109:12
 MERGED from [com.google.android.material:material:1.2.0-alpha06] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b4560040dfca04c540c81ece4963dc4a\material-1.2.0-alpha06\AndroidManifest.xml:17:1-24:12
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\a77c63b76650a221ef17974551f11e75\jetified-library-1.4.2\AndroidManifest.xml:6:1-16:12
@@ -16,6 +16,7 @@ MERGED from [com.google.firebase:firebase-firestore:21.4.3] C:\Users\Wenjiu Wang
 MERGED from [com.google.firebase:firebase-auth:19.3.1] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\aea6a734ed10c3e96b4808d7e29d1ad6\firebase-auth-19.3.1\AndroidManifest.xml:17:1-42:12
 MERGED from [com.google.firebase:firebase-core:17.4.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\eb5dc8fc14536ed95d66f6300131e75a\firebase-core-17.4.2\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.firebase:firebase-analytics:17.4.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\3293ae13f6a500461292c6e54beaa385\firebase-analytics-17.4.2\AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\8072ccd2ec333f31fb12fd403dc5ed60\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.browser:browser:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b594849fa56d5b9fad71dd83828d90e5\browser-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b330925fb01ee4ed1e9954e680eda975\legacy-support-v4-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\c6aefc36dde6e70eca5ecc4103fd4a3c\legacy-support-core-ui-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -62,7 +63,6 @@ MERGED from [androidx.media:media:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\tra
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\cbd72f902d8750139c71bd6fe99144ee\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b5aaea782cd19735f9b562454780595c\asynclayoutinflater-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.core:core:1.2.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\d776de8f4d89593cf904fdbdb9797308\core-1.2.0\AndroidManifest.xml:17:1-26:12
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\8072ccd2ec333f31fb12fd403dc5ed60\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\898146408e339eeab3b03800847a0f33\jetified-firebase-components-16.0.0\AndroidManifest.xml:15:1-23:12
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\77b8e582c4281cf2989df3cdd94b3ec8\localbroadcastmanager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [com.firebaseui:firebase-ui-common:5.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\c70b4625be35d78f1cbe10295a58e728\jetified-firebase-ui-common-5.0.0\AndroidManifest.xml:2:1-11:12
@@ -81,25 +81,25 @@ MERGED from [androidx.print:print:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\tra
 MERGED from [androidx.annotation:annotation-experimental:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\cf4fb441408ce1742febe909d951cbcf\annotation-experimental-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.firebase:protolite-well-known-types:17.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\1c001f10df0e470e8f5ab2ca72e61ab8\protolite-well-known-types-17.0.0\AndroidManifest.xml:2:1-11:12
 MERGED from [io.grpc:grpc-android:1.21.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\aa5589953eebbe5dee5ddcaacf4a531f\grpc-android-1.21.0\AndroidManifest.xml:2:1-13:12
-INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-23:12
-INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-23:12
+INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-27:12
+INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-27:12
 	package
 		ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:3:5-32
 		INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml
 		INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-23:12
+		ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-27:12
 		INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-23:12
+		ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:1-27:12
 		INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:2:11-69
 application
-ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:5:5-21:19
+ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:5:5-25:19
 MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\675a64e2bc9826bcb230d56cbcdcf87a\jetified-firebase-ui-auth-5.0.0\AndroidManifest.xml:15:5-107:19
 MERGED from [com.firebaseui:firebase-ui-auth:5.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\675a64e2bc9826bcb230d56cbcdcf87a\jetified-firebase-ui-auth-5.0.0\AndroidManifest.xml:15:5-107:19
 MERGED from [com.google.android.material:material:1.2.0-alpha06] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b4560040dfca04c540c81ece4963dc4a\material-1.2.0-alpha06\AndroidManifest.xml:22:5-20
@@ -194,6 +194,12 @@ activity#com.wwjz.watsplan.MainActivity
 ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:20:9-50
 	android:name
 		ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:20:19-47
+meta-data#preloaded_fonts
+ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:22:9-24:57
+	android:resource
+		ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:24:13-54
+	android:name
+		ADDED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml:23:13-43
 uses-sdk
 INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\Wenjiu Wang\Desktop\S20\WatsPLAN\app\src\main\AndroidManifest.xml
@@ -222,6 +228,8 @@ MERGED from [com.google.firebase:firebase-core:17.4.2] C:\Users\Wenjiu Wang\.gra
 MERGED from [com.google.firebase:firebase-core:17.4.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\eb5dc8fc14536ed95d66f6300131e75a\firebase-core-17.4.2\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:17.4.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\3293ae13f6a500461292c6e54beaa385\firebase-analytics-17.4.2\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-analytics:17.4.2] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\3293ae13f6a500461292c6e54beaa385\firebase-analytics-17.4.2\AndroidManifest.xml:5:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\8072ccd2ec333f31fb12fd403dc5ed60\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\8072ccd2ec333f31fb12fd403dc5ed60\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.browser:browser:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b594849fa56d5b9fad71dd83828d90e5\browser-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.browser:browser:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b594849fa56d5b9fad71dd83828d90e5\browser-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b330925fb01ee4ed1e9954e680eda975\legacy-support-v4-1.0.0\AndroidManifest.xml:20:5-44
@@ -314,8 +322,6 @@ MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\We
 MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\b5aaea782cd19735f9b562454780595c\asynclayoutinflater-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.core:core:1.2.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\d776de8f4d89593cf904fdbdb9797308\core-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.core:core:1.2.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\d776de8f4d89593cf904fdbdb9797308\core-1.2.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\8072ccd2ec333f31fb12fd403dc5ed60\cardview-1.0.0\AndroidManifest.xml:20:5-44
-MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\8072ccd2ec333f31fb12fd403dc5ed60\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\898146408e339eeab3b03800847a0f33\jetified-firebase-components-16.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\898146408e339eeab3b03800847a0f33\jetified-firebase-components-16.0.0\AndroidManifest.xml:19:5-21:41
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\Wenjiu Wang\.gradle\caches\transforms-2\files-2.1\77b8e582c4281cf2989df3cdd94b3ec8\localbroadcastmanager-1.0.0\AndroidManifest.xml:20:5-44
