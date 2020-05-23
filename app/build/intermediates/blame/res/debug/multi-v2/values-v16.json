@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\d776de8f4d89593cf904fdbdb9797308\\core-1.2.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Jack Zhang\\.gradle\\caches\\transforms-2\\files-2.1\\ce4a462006c1225b75f34254cca1c1c2\\core-1.2.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\e32338272bd19374924bf7752027ac61\\appcompat-1.1.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\Jack Zhang\\.gradle\\caches\\transforms-2\\files-2.1\\b936acd5e7df9fc20cc9c7927119bad9\\appcompat-1.1.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
