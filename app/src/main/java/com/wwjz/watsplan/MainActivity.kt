@@ -23,8 +23,8 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.Source
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
-
-
+import com.google.android.material.snackbar.Snackbar
+import kotlinx.android.synthetic.main.activity_control.*
 
 
 data class Major(
@@ -36,7 +36,9 @@ data class Major(
 )
 
 class MainActivity : AppCompatActivity() {
-
+    val faculties = mutableListOf<String>()
+    val programs = mutableListOf<String>()
+    val saves = listOf<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,10 +49,10 @@ class MainActivity : AppCompatActivity() {
         //Query for faculties
         val fdoc = db.collection("/Faculties/")
 
-        val faculties = mutableListOf<String>()
 
         fdoc.get()
             .addOnSuccessListener { documents ->
+                faculties.clear()
                 for (document in documents) {
                     faculties.add(document.id)
                     Log.d("qq", "${document.id} => ${document.data}")
@@ -68,15 +70,15 @@ class MainActivity : AppCompatActivity() {
 
         faculty_dropdown.setAdapter(fadapter)
 
-        faculty_dropdown.setOnItemClickListener{parent, view, position, id ->
+        faculty_dropdown.setOnItemClickListener { parent, view, position, id ->
             //Query for programs
             program_dropdown.completionHint
             program_dropdown.setText("")
             val pdoc = db.collection(parent.adapter.getItem(position).toString())
-            val programs = mutableListOf<String>()
 
             pdoc.get()
                 .addOnSuccessListener { documents ->
+                    programs.clear()
                     for (document in documents) {
                         programs.add(document.id)
                         Log.d("qq", "${document.id} => ${document.data}")
@@ -135,7 +137,7 @@ class MainActivity : AppCompatActivity() {
         //navigation.inflateMenu(R.menu.drawer_menu)
 
         navigation.setNavigationItemSelectedListener {
-            when (it.itemId){
+            when (it.itemId) {
                 R.id.nav_home -> {
                     true
                 }
@@ -148,6 +150,36 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
+        loadSubmit.setOnClickListener {
+            if (saves.contains(program_dropdown.text.toString())) {
+                val intent = Intent()
+                intent.putExtra("", "")
+                intent.setClass(this, ChecklistActivity::class.java)
+                startActivity(intent)
+            } else {
+                Snackbar.make(createSubmit,"Invalid save, please try again.",
+                    Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(Color.BLACK)
+                    .setTextColor(Color.parseColor("#FFD54F"))
+                    .show()
+            }
+        }
+
+        createSubmit.setOnClickListener {
+            if (programs.contains(program_dropdown.text.toString())) {
+                val intent = Intent()
+                intent.putExtra("", "")
+                intent.setClass(this, ChecklistActivity::class.java)
+                startActivity(intent)
+            } else {
+                Snackbar.make(createSubmit,"Invalid faculty/program, please try again.",
+                    Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(Color.BLACK)
+                    .setTextColor(Color.parseColor("#FFD54F"))
+                    .show()
+            }
+        }
     }
 
 }

@@ -1,118 +1,126 @@
 [
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable_uwlogo.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\drawable\\uwlogo.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\font_droid_sans.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\font\\droid_sans.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable_home.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\drawable\\home.png"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\menu_drawer_menu.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\menu\\drawer_menu.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable_roundbtn.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\drawable\\roundbtn.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable_ic_launcher_background.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_checklist.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\layout\\activity_checklist.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\anim_fade_in.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\anim\\fade_in.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher_round.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-anydpi-v26_ic_launcher.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\mipmap-anydpi-v26\\ic_launcher.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\drawable\\logo.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dev.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\drawable\\dev.png"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_dropdown_menu_popup_item.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\layout\\dropdown_menu_popup_item.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_depth_control.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\layout\\activity_depth_control.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_depth_control.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\layout\\activity_depth_control.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\font_droid_sans.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\font\\droid_sans.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_main.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_dropdown_menu_popup_item.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\layout\\dropdown_menu_popup_item.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_control.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\layout\\activity_control.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\anim_fade_out.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\anim\\fade_out.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable_dev.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\drawable\\dev.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v24_ic_launcher_foreground.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\drawable-v24\\ic_launcher_foreground.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable_home.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\drawable\\home.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_dev_control.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\layout\\activity_dev_control.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_dev_control.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\layout\\activity_dev_control.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_control.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\layout\\activity_control.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable_logo.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\drawable\\logo.png"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_splash.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\layout\\activity_splash.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable_uwlogo.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\drawable\\uwlogo.png"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\anim_fade_out.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\anim\\fade_out.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\anim_fade_in.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\anim\\fade_in.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_nav_header.xml.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\layout\\nav_header.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_splash.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\layout\\activity_splash.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher_round.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher_round.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_nav_header.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\layout\\nav_header.xml"
     },
     {
-        "merged": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "G:\\Github_Repo\\WatsPLAN\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\menu_drawer_menu.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\menu\\drawer_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher_round.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
     }
 ]

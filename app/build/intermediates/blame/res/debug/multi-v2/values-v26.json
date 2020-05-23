@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "G:\\Github_Repo\\WatsPLAN\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v26\\values-v26.xml",
+            "outputFile": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v26\\values-v26.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Jack Zhang\\.gradle\\caches\\transforms-2\\files-2.1\\b936acd5e7df9fc20cc9c7927119bad9\\appcompat-1.1.0\\res\\values-v26\\values-v26.xml",
+                    "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\b936acd5e7df9fc20cc9c7927119bad9\\appcompat-1.1.0\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,3,4,8,12,16",
                         "startColumns": "4,4,4,4,4,4",
@@ -15,7 +15,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Jack Zhang\\.gradle\\caches\\transforms-2\\files-2.1\\b86ff53f4969699ce7cf1f3b020d3b99\\jetified-firebase-ui-auth-5.0.0\\res\\values-v26\\values-v26.xml",
+                    "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\b860edfbdcc117d66340f39c8635c0ae\\jetified-firebase-ui-auth-5.0.0\\res\\values-v26\\values-v26.xml",
                     "from": {
                         "startLines": "2,6,10,14",
                         "startColumns": "4,4,4,4",
