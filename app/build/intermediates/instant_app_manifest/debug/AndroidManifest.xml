@@ -26,6 +26,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/Theme.AppCompat.NoActionBar" >
+        <activity android:name="com.wwjz.watsplan.ChecklistActivity" />
         <activity android:name="com.wwjz.watsplan.DevControlActivity" />
         <activity android:name="com.wwjz.watsplan.DepthControlActivity" />
         <activity android:name="com.wwjz.watsplan.ControlActivity" />
