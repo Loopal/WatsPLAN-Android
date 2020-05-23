@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".MainActivity">
+    android:fitsSystemWindows="true">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/welcome"
@@ -21,6 +27,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.092" />
 
+
     <TextView
         android:id="@+id/select"
         android:layout_width="wrap_content"
@@ -28,32 +35,142 @@
         android:text="Select to continue"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.278"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.273" />
+        app:layout_constraintVertical_bias="0.174" />
 
 
+<<<<<<< HEAD
     <FrameLayout
         android:id="@+id/frameLayout"
 
+=======
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/load"
+>>>>>>> develop
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/card"
+=======
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/saveCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:background="@color/uwYellow"
+            android:backgroundTint="@color/uwYellow"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="40dp"
+                    android:hint="Enter or select from your save data"
+                    app:boxBackgroundColor="@color/uwYellow"
+                    app:boxStrokeColor="#000000"
+                    app:hintTextColor="#000000">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/save_dropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:elevation="10dp"
+            android:fontFamily="@font/droid_sans"
+            android:text="CONTINUE"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/loadSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#000000"
+            android:text="Load"
+            android:textColor="@color/uwYellow"
+            android:translationY="-20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/saveCard" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/load">
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/createCard"
+>>>>>>> develop
             android:layout_width="match_parent"
 
             android:layout_height="wrap_content"
+<<<<<<< HEAD
             android:layout_margin="8dp"
             android:background="@color/uwYellow">
 
+=======
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+
+            android:background="@color/uwYellow"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+>>>>>>> develop
             <LinearLayout
                 android:layout_width="match_parent"
 
@@ -61,19 +178,78 @@
                 android:background="@color/uwYellow"
                 android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="CREATE NEW">
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="Enter or select your faculty"
+                    app:boxBackgroundColor="@color/uwYellow"
+                    app:boxStrokeColor="#000000"
+                    app:hintTextColor="#000000">
 
-                </TextView>
+                    <AutoCompleteTextView
+                        android:id="@+id/faculty_dropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="40dp"
+                    android:hint="Enter or select your program"
+                    app:boxBackgroundColor="@color/uwYellow"
+                    app:boxStrokeColor="#000000"
+                    app:hintTextColor="#000000">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/program_dropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="14sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
             </LinearLayout>
 
-        </com.google.android.material.card.MaterialCardView>
+        </androidx.cardview.widget.CardView>
 
-    </FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:elevation="5dp"
+            android:fontFamily="@font/droid_sans"
+            android:text="CREATE NEW"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+        </TextView>
 
+        <Button
+            android:id="@+id/createSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="#000000"
+            android:text="Create"
+            android:textColor="@color/uwYellow"
+            android:translationY="-20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/createCard" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/createButton"
@@ -84,44 +260,24 @@
         android:textColor="@color/uwYellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="0.226" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8">
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Type or select previous record"
-            app:boxBackgroundColor="@color/uwYellow"
-            app:boxStrokeColor="#000000"
-            app:hintTextColor="#000000"
-            app:placeholderText="Type or select previous record">
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <AutoCompleteTextView
-                android:id="@+id/filled_exposed_dropdown"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="14sp" />
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start|left"
+        android:background="#000000"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu" />
 
-        </com.google.android.material.textfield.TextInputLayout>
-
-    </LinearLayout>
-
+<<<<<<< HEAD
     <Button
         android:id="@+id/updateDepthRequire"
         android:layout_width="wrap_content"
@@ -138,3 +294,6 @@
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+=======
+</androidx.drawerlayout.widget.DrawerLayout>
+>>>>>>> develop

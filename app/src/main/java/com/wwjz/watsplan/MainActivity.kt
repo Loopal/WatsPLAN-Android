@@ -20,6 +20,10 @@ import androidx.fragment.app.FragmentActivity
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.Source
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemClickListener
+
+
 
 
 data class Major(
@@ -37,13 +41,17 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Get DB
         val db = FirebaseFirestore.getInstance()
+        //Query for faculties
+        val fdoc = db.collection("/Faculties/")
 
-        val docRef2 = db.collection("/Index/")
+        val faculties = mutableListOf<String>()
 
-        docRef2.get()
+        fdoc.get()
             .addOnSuccessListener { documents ->
                 for (document in documents) {
+                    faculties.add(document.id)
                     Log.d("qq", "${document.id} => ${document.data}")
                 }
             }
@@ -51,8 +59,40 @@ class MainActivity : AppCompatActivity() {
                 Log.w("qq", "Error getting documents: ", exception)
             }
 
+        val fadapter = ArrayAdapter<String>(
+            this,
+            R.layout.dropdown_menu_popup_item,
+            faculties
+        )
 
+        faculty_dropdown.setAdapter(fadapter)
 
+        faculty_dropdown.setOnItemClickListener{parent, view, position, id ->
+            //Query for programs
+            program_dropdown.completionHint
+            program_dropdown.setText("")
+            val pdoc = db.collection(parent.adapter.getItem(position).toString())
+            val programs = mutableListOf<String>()
+
+            pdoc.get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        programs.add(document.id)
+                        Log.d("qq", "${document.id} => ${document.data}")
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.w("qq", "Error getting documents: ", exception)
+                }
+
+            val padapter = ArrayAdapter<String>(
+                this,
+                R.layout.dropdown_menu_popup_item,
+                programs
+            )
+            program_dropdown.setAdapter(padapter)
+        }
+        /*
         val docRef = db.collection("/Majors/").document("Bachelor of Computer Science (BCS)")
 
         // Source can be CACHE, SERVER, or DEFAULT.
@@ -72,18 +112,7 @@ class MainActivity : AppCompatActivity() {
         docRef.get().addOnSuccessListener { documentSnapshot ->
             val m = documentSnapshot.toObject(Major::class.java)
             Log.d("ccc", m.toString())
-        }
-
-
-        val majors = arrayOf("Item 1", "Item 2", "Item 3", "Item 4")
-
-        val adapter = ArrayAdapter<String>(
-            this,
-            R.layout.dropdown_menu_popup_item,
-            majors
-        )
-
-        filled_exposed_dropdown.setAdapter(adapter)
+        }*/
 
         createButton.setOnClickListener{
 
@@ -102,11 +131,15 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+<<<<<<< HEAD
         updateDepthRequire.setOnClickListener {
             val intent = Intent()
             intent.setClass(this, DepthControlActivity::class.java)
             startActivity(intent)
         }
+=======
+
+>>>>>>> develop
     }
 
 }

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 #Fri May 22 18:54:36 EDT 2020
+=======
+#Fri May 22 19:47:54 EDT 2020
+>>>>>>> develop
 path.2=classes2.dex
 path.1=classes.dex
 path.0=classes.dex
