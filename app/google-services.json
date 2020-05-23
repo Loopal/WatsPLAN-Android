@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "595689314949-jm4s3gebfuq7rcedr6u81qssdnolbf4c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wwjz.watsplan",
+            "certificate_hash": "44f0d9c84edf69c7127209f073d867c859b7bd97"
+          }
+        },
+        {
           "client_id": "595689314949-rog5aph7dumfjunrpm2g6h47fn77p7a0.apps.googleusercontent.com",
           "client_type": 3
         }
