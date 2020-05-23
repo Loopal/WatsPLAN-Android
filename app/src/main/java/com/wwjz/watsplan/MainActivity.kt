@@ -5,6 +5,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import com.google.firebase.database.DataSnapshot
@@ -22,7 +23,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.Source
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
-
 
 
 
@@ -114,7 +114,7 @@ class MainActivity : AppCompatActivity() {
             Log.d("ccc", m.toString())
         }*/
 
-        createButton.setOnClickListener{
+        /*createButton.setOnClickListener{
 
             val intent = Intent()
             intent.setClass(this, ControlActivity::class.java)
@@ -129,9 +129,23 @@ class MainActivity : AppCompatActivity() {
 
             }
 
+        }*/
+
+        //navigation.inflateMenu(R.menu.drawer_menu)
+
+        navigation.setNavigationItemSelectedListener {
+            when (it.itemId){
+                R.id.nav_home -> {
+                    true
+                }
+                else -> {
+                    val intent = Intent()
+                    intent.setClass(this, DevControlActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+            }
         }
-
-
     }
 
 }
