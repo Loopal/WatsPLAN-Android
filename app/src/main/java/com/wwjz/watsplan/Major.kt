@@ -5,5 +5,5 @@ data class Major(
     val Communication2: List<String>? = listOf<String>(),
     val mFixed: List<String>? = listOf<String>(),
     val mFlexible: List<String>? = listOf<String>(),
-    val Fixed: List<String>? = listOf<String>()
+    val sFixed: List<String>? = listOf<String>()
 )
