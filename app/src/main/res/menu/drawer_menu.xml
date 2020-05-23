@@ -5,6 +5,13 @@
     >
 
     <group>
+        <item android:id="@+id/nav_login"
+            android:icon="@drawable/login"
+            android:title="Log in"
+            />
+    </group>
+
+    <group>
         <item android:id="@+id/nav_home"
             android:icon="@drawable/home"
             android:title="Home" />
@@ -14,6 +21,12 @@
         <item android:id="@+id/nav_dev"
             android:icon="@drawable/dev"
             android:title="Dev" />
+    </group>
+
+    <group>
+        <item android:id="@+id/nav_logout"
+            android:icon="@drawable/logout"
+            android:title="Log out" />
     </group>
 
 </menu>
