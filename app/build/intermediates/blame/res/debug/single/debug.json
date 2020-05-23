@@ -24,6 +24,10 @@
         "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\drawable\\ic_launcher_background.xml"
     },
     {
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_checklist.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\layout\\activity_checklist.xml"
+    },
+    {
         "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
         "source": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
