@@ -16,12 +16,12 @@
         "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\e32338272bd19374924bf7752027ac61\\appcompat-1.1.0\\res\\drawable\\btn_checkbox_unchecked_to_checked_mtrl_animation.xml"
     },
     {
-        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\e32338272bd19374924bf7752027ac61\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\color_test_mtrl_calendar_day_selected.xml.flat",
         "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\b4560040dfca04c540c81ece4963dc4a\\material-1.2.0-alpha06\\res\\color\\test_mtrl_calendar_day_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_divider_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\e32338272bd19374924bf7752027ac61\\appcompat-1.1.0\\res\\drawable-hdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\color_material_slider_active_track_color.xml.flat",
@@ -44,16 +44,16 @@
         "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\b4560040dfca04c540c81ece4963dc4a\\material-1.2.0-alpha06\\res\\layout\\design_menu_item_action_area.xml"
     },
     {
-        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_snackbar.xml.flat",
-        "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\b4560040dfca04c540c81ece4963dc4a\\material-1.2.0-alpha06\\res\\layout\\design_layout_snackbar.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_navigation_menu_item.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\b4560040dfca04c540c81ece4963dc4a\\material-1.2.0-alpha06\\res\\layout\\design_navigation_menu_item.xml"
     },
     {
         "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_popup_menu_header_item_layout.xml.flat",
         "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\e32338272bd19374924bf7752027ac61\\appcompat-1.1.0\\res\\layout\\abc_popup_menu_header_item_layout.xml"
     },
     {
-        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_navigation_menu_item.xml.flat",
-        "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\b4560040dfca04c540c81ece4963dc4a\\material-1.2.0-alpha06\\res\\layout\\design_navigation_menu_item.xml"
+        "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_snackbar.xml.flat",
+        "source": "C:\\Users\\Wenjiu Wang\\.gradle\\caches\\transforms-2\\files-2.1\\b4560040dfca04c540c81ece4963dc4a\\material-1.2.0-alpha06\\res\\layout\\design_layout_snackbar.xml"
     },
     {
         "merged": "C:\\Users\\Wenjiu Wang\\Desktop\\S20\\WatsPLAN\\app\\build\\intermediates\\res\\merged\\debug\\layout_mtrl_picker_header_toggle.xml.flat",
