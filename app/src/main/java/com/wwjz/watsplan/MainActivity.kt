@@ -27,13 +27,7 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_control.*
 
 
-data class Major(
-    val Communication1: String? = null,
-    val Communication2: String? = null,
-    val mFixed: String? = null,
-    val mFlexible: String? = null,
-    val Fixed: String? = null
-)
+
 
 class MainActivity : AppCompatActivity() {
     val faculties = mutableListOf<String>()
@@ -152,9 +146,9 @@ class MainActivity : AppCompatActivity() {
 
 
         loadSubmit.setOnClickListener {
-            if (saves.contains(program_dropdown.text.toString())) {
+            if (saves.contains(save_dropdown.text.toString())) {
                 val intent = Intent()
-                intent.putExtra("", "")
+                intent.putExtra("Save", save_dropdown.text.toString())
                 intent.setClass(this, ChecklistActivity::class.java)
                 startActivity(intent)
             } else {
@@ -169,7 +163,7 @@ class MainActivity : AppCompatActivity() {
         createSubmit.setOnClickListener {
             if (programs.contains(program_dropdown.text.toString())) {
                 val intent = Intent()
-                intent.putExtra("", "")
+                intent.putExtra("Major", program_dropdown.text.toString())
                 intent.setClass(this, ChecklistActivity::class.java)
                 startActivity(intent)
             } else {
