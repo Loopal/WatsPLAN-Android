@@ -1,10 +1,13 @@
 package com.wwjz.watsplan
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.text.TextUtils
 import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.DatabaseReference
@@ -14,6 +17,8 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
 
+    var handler = Handler()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +27,13 @@ class RegisterActivity : AppCompatActivity() {
         val fAuth = FirebaseAuth.getInstance()
 
         if(fAuth.currentUser != null){
-            val intent = Intent()
-            intent.setClass(this, MainActivity::class.java)
-            startActivity(intent)
-            finish()
+            handler.postDelayed({
+                val intent = Intent()
+                intent.setClass(this, MainActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                finish()
+            }, 1000)
         }
 
         registerButton.setOnClickListener {
@@ -33,7 +41,10 @@ class RegisterActivity : AppCompatActivity() {
             val email = registerEmail.text.toString().trim()
             val password = registerPassword.text.toString().trim()
             val passwordConfirmed = registerConfirmPassword.text.toString().trim()
+            // Regex for password strength check
+            val regexPasswordChecker = Regex("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$")
 
+            // Checker for each textfield
             if(TextUtils.isEmpty(name)){
                 registerName.error = "Name is Required"
                 return@setOnClickListener
@@ -44,43 +55,72 @@ class RegisterActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            if(password.length < 6){
-                registerPassword.error = "Password Must be at Least 6 Characters"
+            if(!password.matches(regexPasswordChecker)){
+                registerPassword.error = "Password Should Be Minimum Eight Characters, at Least One Letter, One Number and One Special Character"
                 return@setOnClickListener
             }
 
             if(!password.equals(passwordConfirmed)){
-                registerConfirmPassword.error = "Password Should be Same"
+                registerConfirmPassword.error = "Password Should Be Same"
                 return@setOnClickListener
             }
 
-            fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
-                if(it.isSuccessful){
-                    val user = fAuth.currentUser
-                    val profileUpdates = UserProfileChangeRequest.Builder()
-                        .setDisplayName(name)
-                        .build()
-                    user?.updateProfile(profileUpdates)
-                        ?.addOnCompleteListener {
-                            if(it.isSuccessful){
-                                Toast.makeText(this, "User Created", Toast.LENGTH_SHORT).show()
+            // Create an account with email and password
+            fAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener {
+                    if(it.isSuccessful){
+                        val user = fAuth.currentUser
+                        val profileUpdates = UserProfileChangeRequest.Builder()
+                            .setDisplayName(name)
+                            .build()
+                        user?.updateProfile(profileUpdates)
+                            ?.addOnCompleteListener {
+                                if(it.isSuccessful){
+                                    Snackbar.make(registerButton,"New Account Created Successfully",
+                                        Snackbar.LENGTH_LONG)
+                                        .setBackgroundTint(Color.BLACK)
+                                        .setTextColor(Color.parseColor("#FFD54F"))
+                                        .show()
+                                    /*val intent = Intent()
+                                    intent.setClass(this, MainActivity::class.java)
+                                    startActivity(intent)*/
+                                    handler.postDelayed({
+                                        val intent = Intent()
+                                        intent.setClass(this, MainActivity::class.java)
+                                        startActivity(intent)
+                                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                                        finish()
+                                    }, 1000)
+                                }
                             }
-                        }
-                    val intent = Intent()
-                    intent.setClass(this, MainActivity::class.java)
-                    startActivity(intent)
+                    }
+                    else{
+                        Snackbar.make(registerButton,"Error " + (it.exception?.message ?:-1),
+                            Snackbar.LENGTH_LONG)
+                            .setBackgroundTint(Color.BLACK)
+                            .setTextColor(Color.parseColor("#FFD54F"))
+                            .show()
+                    }
                 }
-                else{
-                    Toast.makeText(this, "Error " + (it.exception?.message ?:-1), Toast.LENGTH_SHORT).show()
+                // Catch the failures
+                .addOnFailureListener {
+                    Snackbar.make(registerButton,it.localizedMessage,
+                        Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
                 }
-            }
 
         }
 
         registerSwitch.setOnClickListener {
-            val intent = Intent()
-            intent.setClass(this, LoginActivity::class.java)
-            startActivity(intent)
+            handler.postDelayed({
+                val intent = Intent()
+                intent.setClass(this, LoginActivity::class.java)
+                startActivity(intent)
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                finish()
+            }, 1000)
         }
 
     }
