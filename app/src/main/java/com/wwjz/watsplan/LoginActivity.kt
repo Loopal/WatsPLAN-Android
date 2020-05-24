@@ -22,12 +22,12 @@ class LoginActivity : AppCompatActivity() {
             val password = loginPassword.text.toString().trim()
 
             if(TextUtils.isEmpty(email)){
-                registerEmail.error = "Email is Required"
+                loginEmail.error = "Email is Required"
                 return@setOnClickListener
             }
 
             if(TextUtils.isEmpty(password)){
-                registerPassword.error = "Password is Required"
+                loginPassword.error = "Password is Required"
                 return@setOnClickListener
             }
 
