@@ -172,7 +172,7 @@ class MainActivity : AppCompatActivity() {
                             startActivity(intent)
                             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                             finish()
-                        }, 1000)
+                        }, 100)
                     }
                     else{
                         handler.postDelayed({
@@ -181,7 +181,7 @@ class MainActivity : AppCompatActivity() {
                             startActivity(intent)
                             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                             finish()
-                        }, 1000)
+                        }, 100)
                     }
                     true
                 }
@@ -189,23 +189,39 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.nav_dev -> {
-
-                    if(permissionDeny){
+                    val user = FirebaseAuth.getInstance().currentUser
+                    /*if(permissionDeny){
                         MaterialDialog(this).show{
                             title(text = "Permission")
                             message(text = "You have no permission to access this section")
                             negativeButton(text = "Back")
                         }
 
+                    }*/
+                    if (user != null) {
+                        if(user.email == "jzdevelopments@gmail.com" || user.email == "vanjor1014@gmail.com"){
+                            handler.postDelayed({
+                                val intent = Intent()
+                                intent.setClass(this, DevControlActivity::class.java)
+                                startActivity(intent)
+                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                                finish()
+                            }, 100)
+                        }
+                        else{
+                            Snackbar.make(navigation,"You have no permission to access this section",
+                                Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(Color.BLACK)
+                                .setTextColor(Color.parseColor("#FFD54F"))
+                                .show()
+                        }
                     }
                     else{
-                        handler.postDelayed({
-                            val intent = Intent()
-                            intent.setClass(this, DevControlActivity::class.java)
-                            startActivity(intent)
-                            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-                            finish()
-                        }, 1000)
+                        Snackbar.make(navigation,"Please login to access this section",
+                            Snackbar.LENGTH_LONG)
+                            .setBackgroundTint(Color.BLACK)
+                            .setTextColor(Color.parseColor("#FFD54F"))
+                            .show()
                     }
                     true
                 }
@@ -253,7 +269,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == 1){
@@ -275,6 +291,6 @@ class MainActivity : AppCompatActivity() {
                 // ...
             }
         }
-    }
+    }*/
 
 }

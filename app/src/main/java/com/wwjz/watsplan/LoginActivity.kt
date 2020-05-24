@@ -51,7 +51,7 @@ class LoginActivity : AppCompatActivity() {
                             startActivity(intent)
                             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                             finish()
-                        }, 1000)
+                        }, 100)
                     }
                     else{
                         Snackbar.make(loginButton,"Error " + (it.exception?.message ?:-1),
@@ -78,7 +78,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                 finish()
-            }, 1000)
+            }, 100)
         }
     }
 }

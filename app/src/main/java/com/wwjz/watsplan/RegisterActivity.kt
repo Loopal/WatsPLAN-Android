@@ -33,7 +33,7 @@ class RegisterActivity : AppCompatActivity() {
                 startActivity(intent)
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                 finish()
-            }, 1000)
+            }, 100)
         }
 
         registerButton.setOnClickListener {
@@ -56,12 +56,12 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             if(!password.matches(regexPasswordChecker)){
-                registerPassword.error = "Password Should Be Minimum Eight Characters, at Least One Letter, One Number and One Special Character"
+                registerPassword.error = "Password should be Minimum Eight Characters, at Least One Letter, One Number and One Special Character"
                 return@setOnClickListener
             }
 
             if(!password.equals(passwordConfirmed)){
-                registerConfirmPassword.error = "Password Should Be Same"
+                registerConfirmPassword.error = "Password should be Same"
                 return@setOnClickListener
             }
 
@@ -90,7 +90,7 @@ class RegisterActivity : AppCompatActivity() {
                                         startActivity(intent)
                                         overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                                         finish()
-                                    }, 1000)
+                                    }, 100)
                                 }
                             }
                     }
@@ -120,7 +120,7 @@ class RegisterActivity : AppCompatActivity() {
                 startActivity(intent)
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
                 finish()
-            }, 1000)
+            }, 100)
         }
 
     }
