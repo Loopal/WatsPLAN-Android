@@ -24,6 +24,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.Source
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
+import android.widget.Toast
 import com.afollestad.materialdialogs.MaterialDialog
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
@@ -139,12 +140,13 @@ class MainActivity : AppCompatActivity() {
         navigation.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_login ->{
+                    /*
                     // Choose authentication providers
                     val providers = arrayListOf(
                         AuthUI.IdpConfig.EmailBuilder().build(),
                         AuthUI.IdpConfig.GoogleBuilder().build())
 
-        // Create and launch sign-in intent
+                    // Create and launch sign-in intent
                     startActivityForResult(
                         AuthUI.getInstance()
                             .createSignInIntentBuilder()
@@ -153,6 +155,20 @@ class MainActivity : AppCompatActivity() {
                             .setTheme(R.style.AppTheme_NoActionBar)
                             .build(),
                         1)
+                    true*/
+                    val fAuth = FirebaseAuth.getInstance()
+                    if(fAuth.currentUser != null){
+                        val intent = Intent()
+                        intent.setClass(this, MainActivity::class.java)
+                        startActivity(intent)
+                        Toast.makeText(this, "Current Login with " + fAuth.currentUser!!.displayName.toString(), Toast.LENGTH_SHORT).show()
+                        finish()
+                    }
+                    else{
+                        val intent = Intent()
+                        intent.setClass(this, LoginActivity::class.java)
+                        startActivity(intent)
+                    }
                     true
                 }
                 R.id.nav_home -> {
@@ -177,6 +193,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 else -> {
                     FirebaseAuth.getInstance().signOut()
+                    Toast.makeText(this, "Logout Successfully", Toast.LENGTH_SHORT).show()
                     true
                 }
             }
