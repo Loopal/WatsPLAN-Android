@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-
-        <activity android:name=".ChecklistActivity"/>
+        <activity android:name=".RegisterActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".ChecklistActivity" />
         <activity android:name=".DevControlActivity" />
         <activity android:name=".DepthControlActivity" />
         <activity android:name=".ControlActivity" />
