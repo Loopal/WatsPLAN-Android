@@ -29,6 +29,19 @@ class cardRecyclerAdapter(context : Context) : RecyclerView.Adapter<cardViewHold
         return model.cards.size
     }
 
+    override fun onBindViewHolder(holder: cardViewHolder, position: Int, payloads: MutableList<Any>) {
+        if (payloads.isEmpty()) {
+            onBindViewHolder(holder, position)
+        } else {
+            for (payload in payloads) {
+                if (payload is String) {
+                    holder.cardProgress!!.progress = model.cards[position].progress
+                }
+            }
+        }
+    }
+
+
     override fun onBindViewHolder(holder: cardViewHolder, position: Int) {
         holder.cardText!!.text = model.cards[position].text
         val newAdapter = CheckBoxAdapter(position,cxt, this)
@@ -92,7 +105,7 @@ class CheckBoxAdapter(pos:Int, context:Context, a: cardRecyclerAdapter) : Recycl
                     true -> 100
                     false -> model.cards[p].progress + 100 / model.cards[p].num
                 }
-                Handler().post(Runnable { parentAdapter.notifyItemChanged(p) })
+                Handler().post(Runnable { parentAdapter.notifyItemChanged(p, "") })
 
             } else {
                 model.cards[p].checkedBoxes.remove(position)
@@ -101,7 +114,7 @@ class CheckBoxAdapter(pos:Int, context:Context, a: cardRecyclerAdapter) : Recycl
                     false -> model.cards[p].progress - 100 / model.cards[p].num
                 }
                 Handler().post(Runnable { notifyItemChanged(position) })
-                Handler().post(Runnable { parentAdapter.notifyItemChanged(p) })
+                Handler().post(Runnable { parentAdapter.notifyItemChanged(p,"") })
 
             }
             Log.d("box",model.cards[p].checkedBoxes.size.toString())
