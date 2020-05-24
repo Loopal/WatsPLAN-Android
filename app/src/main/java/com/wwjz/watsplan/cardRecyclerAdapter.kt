@@ -94,8 +94,9 @@ class CheckBoxAdapter(pos:Int, context:Context, a: cardRecyclerAdapter) : Recycl
         holder.cbox!!.text = model.cards[p].items[position]
         holder.cbox!!.isChecked = model.cards[p].checkedBoxes.contains(position)
 
-        holder.cbox!!.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
+        holder.cbox!!.setOnClickListener {
+            var curBox = it as CheckBox
+            if (curBox.isChecked) {git
                 model.cards[p].checkedBoxes.add(position)
                 if (model.cards[p].checkedBoxes.size > model.cards[p].num) {
                     var uncheckPos = model.cards[p].checkedBoxes.removeAt(0)
