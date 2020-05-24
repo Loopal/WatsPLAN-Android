@@ -20,6 +20,9 @@ class ChecklistActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checklist)
 
+        model.cards.clear()
+        model.storedCards.clear()
+
         //get intent
         val s = intent.getStringExtra("Save")
         val m = intent.getStringExtra("Major")
@@ -52,13 +55,13 @@ class ChecklistActivity : AppCompatActivity() {
         for (item in major.Communication1!!) {
             commItem1.add(item)
         }
-        model.storedCards.add(Card("Select 1 of:", false, commItem1))
+        model.storedCards.add(Card("SELECT 1 FROM", false, commItem1))
 
         val commItem2 = mutableListOf<String>()
         for (item in major.Communication2!!) {
             commItem2.add(item)
         }
-        model.storedCards.add(Card("Select 1 of:", false, commItem2))
+        model.storedCards.add(Card("SELECT 1 FROM", false, commItem2))
 
 
         for (item in major.sFixed!!) {
@@ -66,7 +69,7 @@ class ChecklistActivity : AppCompatActivity() {
             for (entry in item.split(",").toList()) {
                 temp.add(entry)
             }
-            model.storedCards.add(Card("Select", false, temp))
+            model.storedCards.add(Card("SELECT 1 FROM", false, temp))
         }
 
 
@@ -81,7 +84,7 @@ class ChecklistActivity : AppCompatActivity() {
                     temp.add(entry)
                 }
             }
-            model.storedCards.add(Card("Select ${num} of:", false, temp))
+            model.storedCards.add(Card("SELECT ${num} FROM", false, temp))
         }
 
 
@@ -96,7 +99,7 @@ class ChecklistActivity : AppCompatActivity() {
                     temp.add(entry)
                 }
             }
-            model.storedCards.add(Card("Select ${num} of:", false, temp))
+            model.storedCards.add(Card("SELECT ${num} FROM", false, temp))
         }
 
         model.cards.addAll(model.storedCards)
