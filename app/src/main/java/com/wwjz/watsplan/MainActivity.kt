@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
 import android.widget.ArrayAdapter
@@ -32,6 +33,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_control.*
+import kotlinx.android.synthetic.main.activity_register.*
 
 
 var permissionDeny = true
@@ -40,6 +42,7 @@ class MainActivity : AppCompatActivity() {
     val faculties = mutableListOf<String>()
     val programs = mutableListOf<String>()
     val saves = listOf<String>()
+    var handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -158,16 +161,27 @@ class MainActivity : AppCompatActivity() {
                     true*/
                     val fAuth = FirebaseAuth.getInstance()
                     if(fAuth.currentUser != null){
-                        val intent = Intent()
-                        intent.setClass(this, MainActivity::class.java)
-                        startActivity(intent)
-                        Toast.makeText(this, "Current Login with " + fAuth.currentUser!!.displayName.toString(), Toast.LENGTH_SHORT).show()
-                        finish()
+                        Snackbar.make(createSubmit,"Current Login with " + fAuth.currentUser!!.displayName.toString(),
+                            Snackbar.LENGTH_LONG)
+                            .setBackgroundTint(Color.BLACK)
+                            .setTextColor(Color.parseColor("#FFD54F"))
+                            .show()
+                        handler.postDelayed({
+                            val intent = Intent()
+                            intent.setClass(this, MainActivity::class.java)
+                            startActivity(intent)
+                            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                            finish()
+                        }, 1000)
                     }
                     else{
-                        val intent = Intent()
-                        intent.setClass(this, LoginActivity::class.java)
-                        startActivity(intent)
+                        handler.postDelayed({
+                            val intent = Intent()
+                            intent.setClass(this, LoginActivity::class.java)
+                            startActivity(intent)
+                            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                            finish()
+                        }, 1000)
                     }
                     true
                 }
@@ -185,15 +199,23 @@ class MainActivity : AppCompatActivity() {
 
                     }
                     else{
-                        val intent = Intent()
-                        intent.setClass(this, DevControlActivity::class.java)
-                        startActivity(intent)
+                        handler.postDelayed({
+                            val intent = Intent()
+                            intent.setClass(this, DevControlActivity::class.java)
+                            startActivity(intent)
+                            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                            finish()
+                        }, 1000)
                     }
                     true
                 }
                 else -> {
                     FirebaseAuth.getInstance().signOut()
-                    Toast.makeText(this, "Logout Successfully", Toast.LENGTH_SHORT).show()
+                    Snackbar.make(createSubmit,"Logout Successfully",
+                        Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
                     true
                 }
             }
