@@ -13,7 +13,6 @@
         android:layout_marginVertical="10dp"
         android:layout_marginEnd="10dp"
         android:background="#000000"
-        android:backgroundTint="@color/uwYellow"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -33,6 +32,18 @@
                     android:textSize="20sp"
                     android:textColor="@color/uwYellow"/>
 
+                <ProgressBar
+                    android:id="@+id/cardProgress"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:progressDrawable="@drawable/circle"
+                    android:progress="100"
+                    />
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/boxGrid"
                     android:background="@color/uwYellow"
@@ -49,7 +60,7 @@
                     <EditText
                         android:id="@+id/cardComment"
                         android:layout_marginLeft="10dp"
-                        android:layout_marginVertical="5dp"
+                        android:layout_marginBottom="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textColor="#787878"
