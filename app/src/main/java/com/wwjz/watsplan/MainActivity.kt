@@ -5,6 +5,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
 import android.widget.ArrayAdapter
@@ -24,6 +25,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.firestore.Source
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
+import android.widget.Toast
 import com.afollestad.materialdialogs.MaterialDialog
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
@@ -31,6 +33,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_control.*
+import kotlinx.android.synthetic.main.activity_register.*
 
 
 var permissionDeny = true
@@ -39,6 +42,7 @@ class MainActivity : AppCompatActivity() {
     val faculties = mutableListOf<String>()
     val programs = mutableListOf<String>()
     val saves = listOf<String>()
+    var handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -139,12 +143,13 @@ class MainActivity : AppCompatActivity() {
         navigation.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_login ->{
+                    /*
                     // Choose authentication providers
                     val providers = arrayListOf(
                         AuthUI.IdpConfig.EmailBuilder().build(),
                         AuthUI.IdpConfig.GoogleBuilder().build())
 
-        // Create and launch sign-in intent
+                    // Create and launch sign-in intent
                     startActivityForResult(
                         AuthUI.getInstance()
                             .createSignInIntentBuilder()
@@ -153,30 +158,78 @@ class MainActivity : AppCompatActivity() {
                             .setTheme(R.style.AppTheme_NoActionBar)
                             .build(),
                         1)
+                    true*/
+                    val fAuth = FirebaseAuth.getInstance()
+                    if(fAuth.currentUser != null){
+                        Snackbar.make(createSubmit,"Current Login with " + fAuth.currentUser!!.displayName.toString(),
+                            Snackbar.LENGTH_LONG)
+                            .setBackgroundTint(Color.BLACK)
+                            .setTextColor(Color.parseColor("#FFD54F"))
+                            .show()
+                        handler.postDelayed({
+                            val intent = Intent()
+                            intent.setClass(this, MainActivity::class.java)
+                            startActivity(intent)
+                            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                            finish()
+                        }, 100)
+                    }
+                    else{
+                        handler.postDelayed({
+                            val intent = Intent()
+                            intent.setClass(this, LoginActivity::class.java)
+                            startActivity(intent)
+                            overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                        }, 100)
+                    }
                     true
                 }
                 R.id.nav_home -> {
                     true
                 }
                 R.id.nav_dev -> {
-
-                    if(permissionDeny){
+                    val user = FirebaseAuth.getInstance().currentUser
+                    /*if(permissionDeny){
                         MaterialDialog(this).show{
                             title(text = "Permission")
                             message(text = "You have no permission to access this section")
                             negativeButton(text = "Back")
                         }
 
+                    }*/
+                    if (user != null) {
+                        if(user.email == "jzdevelopments@gmail.com" || user.email == "vanjor1014@gmail.com"){
+                            handler.postDelayed({
+                                val intent = Intent()
+                                intent.setClass(this, DevControlActivity::class.java)
+                                startActivity(intent)
+                                overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
+                            }, 100)
+                        }
+                        else{
+                            Snackbar.make(navigation,"You have no permission to access this section",
+                                Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(Color.BLACK)
+                                .setTextColor(Color.parseColor("#FFD54F"))
+                                .show()
+                        }
                     }
                     else{
-                        val intent = Intent()
-                        intent.setClass(this, DevControlActivity::class.java)
-                        startActivity(intent)
+                        Snackbar.make(navigation,"Please login to access this section",
+                            Snackbar.LENGTH_LONG)
+                            .setBackgroundTint(Color.BLACK)
+                            .setTextColor(Color.parseColor("#FFD54F"))
+                            .show()
                     }
                     true
                 }
                 else -> {
                     FirebaseAuth.getInstance().signOut()
+                    Snackbar.make(createSubmit,"Logout Successfully",
+                        Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
                     true
                 }
             }
@@ -214,7 +267,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         if(requestCode == 1){
@@ -236,6 +289,6 @@ class MainActivity : AppCompatActivity() {
                 // ...
             }
         }
-    }
+    }*/
 
 }

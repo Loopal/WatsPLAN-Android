@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginVertical="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#000000"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:background="#000000"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginVertical="3dp"
+                    android:id="@+id/cardDescription"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/droid_sans"
+                    android:textSize="20sp"
+                    android:textColor="@color/uwYellow"/>
+
+                <ProgressBar
+                    android:id="@+id/cardProgress"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_alignParentRight="true"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:progressDrawable="@drawable/circle"
+                    android:progress="100"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/boxGrid"
+                    android:background="@color/uwYellow"
+                    android:layout_below="@id/cardDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_below="@id/boxGrid"
+                    android:background="@color/uwYellow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/cardComment"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#787878"
+                        android:textColorHint="#787878"
+                        android:hint="My selection is ... "
+                        android:textSize="12sp"
+                        />
+
+                </LinearLayout>
+
+
+
+
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
