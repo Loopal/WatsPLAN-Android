@@ -180,7 +180,6 @@ class MainActivity : AppCompatActivity() {
                             intent.setClass(this, LoginActivity::class.java)
                             startActivity(intent)
                             overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-                            finish()
                         }, 100)
                     }
                     true
@@ -205,7 +204,6 @@ class MainActivity : AppCompatActivity() {
                                 intent.setClass(this, DevControlActivity::class.java)
                                 startActivity(intent)
                                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
-                                finish()
                             }, 100)
                         }
                         else{
