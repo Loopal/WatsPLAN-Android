@@ -22,11 +22,7 @@ class ControlActivity : AppCompatActivity() {
     fun submit() {
         val db = FirebaseFirestore.getInstance()
         val major = hashMapOf(
-            "Communication1" to Communication1.text.toString().split(";").toList(),
-            "Communication2" to Communication2.text.toString().split(";").toList(),
-            "mFixed" to mFixed.text.toString().split(";").toList(),
-            "mFlexible" to mFlexible.text.toString().split(";").toList(),
-            "sFixed" to sFixed.text.toString().split(";").toList()
+            "Requirements" to editThis.text.toString().lines().toList()
         )
 
         db.collection("Majors")
