@@ -35,6 +35,7 @@ class ChecklistActivity : AppCompatActivity() {
         if (s != null) {
             //Load save data
         } else if (m != null) {
+            checklistTitle.text = m
 
             //Query for Major
             val docRef = db.collection("/Majors/").document(m.toString())
@@ -70,55 +71,10 @@ class ChecklistActivity : AppCompatActivity() {
     }
 
     private fun updateCards() {
-        val commItem1 = mutableListOf<String>()
-        for (item in major.Communication1!!) {
-            commItem1.add(item)
-        }
-        model.storedCards.add(Card("SELECT 1 FROM", false, 1, commItem1))
 
-        val commItem2 = mutableListOf<String>()
-        for (item in major.Communication2!!) {
-            commItem2.add(item)
-        }
-        model.storedCards.add(Card("SELECT 1 FROM", false, 1, commItem2))
-
-
-        for (item in major.sFixed!!) {
-            val temp = mutableListOf<String>()
-            for (entry in item.split(",").toList()) {
-                temp.add(entry)
-            }
-            model.storedCards.add(Card("SELECT 1 FROM", false, 1, temp))
-        }
-
-
-        for (item in major.mFixed!!) {
-            val temp = mutableListOf<String>()
-            var num = 0
-            for (entry in item.split(",").toList()) {
-                if (entry.length == 1) {
-                    num = entry.toInt()
-                    continue
-                } else {
-                    temp.add(entry)
-                }
-            }
-            model.storedCards.add(Card("SELECT ${num} FROM", false, num, temp))
-        }
-
-
-        for (item in major.mFlexible!!) {
-            val temp = mutableListOf<String>()
-            var num = 0
-            for (entry in item.split(",").toList()) {
-                if (entry.length == 1) {
-                    num = entry.toInt()
-                    continue
-                } else {
-                    temp.add(entry)
-                }
-            }
-            model.storedCards.add(Card("SELECT ${num} FROM", false, num, temp))
+        for (item in major.Requirements!!) {
+            val temp = item.split(",").toList()
+            model.storedCards.add(Card("SELECT ${temp[1]} FROM", false, temp[1].toInt(), temp.subList(2,temp.size)))
         }
 
         model.cards.addAll(model.storedCards)
