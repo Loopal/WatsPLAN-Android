@@ -82,6 +82,7 @@ class LoginActivity : AppCompatActivity() {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out)
             }, 100)
         }
+
     }
 
     // Hide the softKeyboard when change focus
