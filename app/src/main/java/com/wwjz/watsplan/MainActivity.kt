@@ -1,6 +1,7 @@
 package com.wwjz.watsplan
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,8 @@ import android.os.Bundle
 import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
+import android.view.MotionEvent
+import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
 import com.google.firebase.database.DataSnapshot
@@ -265,6 +268,15 @@ class MainActivity : AppCompatActivity() {
                     .show()
             }
         }
+    }
+
+    // Hide the softKeyboard when change focus
+    override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
+        if(currentFocus != null){
+            val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(currentFocus!!.windowToken, 0)
+        }
+        return super.dispatchTouchEvent(ev)
     }
 
     /*override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
