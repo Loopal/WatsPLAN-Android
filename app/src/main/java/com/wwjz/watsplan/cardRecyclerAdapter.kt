@@ -59,6 +59,17 @@ class cardRecyclerAdapter(context : Context) : RecyclerView.Adapter<cardViewHold
 
     }
 
+    fun applyFilter(low: Int, high : Int) {
+        model.cards.clear()
+
+        for (c in model.storedCards) {
+            if (c.progress in low..high) {
+                model.cards.add(c)
+            }
+        }
+        Handler().post(Runnable { notifyDataSetChanged() })
+    }
+
 }
 
 class cardViewHolder(v: View) : RecyclerView.ViewHolder(v) {
