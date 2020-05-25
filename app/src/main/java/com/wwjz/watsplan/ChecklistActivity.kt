@@ -74,7 +74,12 @@ class ChecklistActivity : AppCompatActivity() {
 
         for (item in major.Requirements!!) {
             val temp = item.split(",").toList()
-            model.storedCards.add(Card("SELECT ${temp[1]} FROM", false, temp[1].toInt(), temp.subList(2,temp.size)))
+            if (temp.size > 3) {
+                model.storedCards.add(Card("Select ${temp[1]} From ${temp[0]}", false, temp[1].toInt(), temp.subList(2,temp.size)))
+            } else {
+                model.storedCards.add(Card("Select ${temp[0]}", false, temp[1].toInt(), temp.subList(2,temp.size)))
+            }
+
         }
 
         model.cards.addAll(model.storedCards)
