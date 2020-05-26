@@ -7,26 +7,44 @@
     android:layout_height="match_parent"
     tools:context=".ChecklistActivity">
 
-
-    <TextView
-        android:id="@+id/checklistTitle"
+    <RelativeLayout
+        android:background="#000000"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/titleHolder"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textSize="32sp"
-        android:textColor="#000000"
-        android:fontFamily="@font/droid_sans"
-        />
+        >
+
+        <ImageView
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/facultyLogo"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/majorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/droid_sans"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_below="@id/facultyLogo"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintTop_toBottomOf="@id/facultyLogo"
+            android:layout_marginBottom="5dp"
+            />
+    </RelativeLayout>
+
+
 
     <RadioGroup android:id="@+id/toggleGroup"
-        app:layout_constraintTop_toBottomOf="@id/checklistTitle"
+        app:layout_constraintTop_toBottomOf="@id/titleHolder"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:orientation="horizontal"
         >
 
@@ -64,12 +82,20 @@
             />
     </RadioGroup>
 
+    <LinearLayout
+        android:id="@+id/bar2"
+        app:layout_constraintTop_toBottomOf="@id/toggleGroup"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:orientation="vertical"
+        android:background="#787878"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginTop="10dp"
         android:id="@+id/cardRecycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toggleGroup"
+        app:layout_constraintTop_toBottomOf="@id/bar2"
         app:layout_constraintVertical_bias="0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constrainedHeight="true"
