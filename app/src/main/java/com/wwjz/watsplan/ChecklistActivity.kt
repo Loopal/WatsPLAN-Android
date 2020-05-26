@@ -35,9 +35,9 @@ class ChecklistActivity : AppCompatActivity() {
         if (s != null) {
             //Load save data
         } else if (m != null) {
-            checklistTitle.text = m
-
             //Query for Major
+            majorName.text = m
+            setlogo(m)
             val docRef = db.collection("/Majors/").document(m.toString())
             docRef.get().addOnSuccessListener { documentSnapshot ->
                 major = documentSnapshot.toObject(Major::class.java)!!
@@ -93,6 +93,17 @@ class ChecklistActivity : AppCompatActivity() {
             selectAll.id -> newAdapter.applyFilter(0,101)
             selectChecked.id -> newAdapter.applyFilter(100,101)
             selectUnchecked.id -> newAdapter.applyFilter(0,99)
+        }
+    }
+
+    fun setlogo(s : String) {
+        when(s) {
+            "Applied Health Sciences"-> facultyLogo.setImageDrawable(getDrawable(R.drawable.ahs_logo))
+            "Arts"-> facultyLogo.setImageDrawable(getDrawable(R.drawable.arts_logo))
+            "Engineering"-> facultyLogo.setImageDrawable(getDrawable(R.drawable.eng_logo))
+            "Environment"-> facultyLogo.setImageDrawable(getDrawable(R.drawable.env_logo))
+            "Mathematics"-> facultyLogo.setImageDrawable(getDrawable(R.drawable.math_logo))
+            "Science"-> facultyLogo.setImageDrawable(getDrawable(R.drawable.sci_logo))
         }
     }
 
