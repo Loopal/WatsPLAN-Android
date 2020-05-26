@@ -30,6 +30,7 @@ class ChecklistActivity : AppCompatActivity() {
         //get intent
         val s = intent.getStringExtra("Save")
         val m = intent.getStringExtra("Major")
+        val f = intent.getStringExtra("Faculty")
 
 
         if (s != null) {
@@ -37,7 +38,7 @@ class ChecklistActivity : AppCompatActivity() {
         } else if (m != null) {
             //Query for Major
             majorName.text = m
-            setlogo(m)
+            setlogo(f)
             val docRef = db.collection("/Majors/").document(m.toString())
             docRef.get().addOnSuccessListener { documentSnapshot ->
                 major = documentSnapshot.toObject(Major::class.java)!!
