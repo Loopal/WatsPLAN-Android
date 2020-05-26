@@ -257,6 +257,7 @@ class MainActivity : AppCompatActivity() {
         createSubmit.setOnClickListener {
             if (programs.contains(program_dropdown.text.toString())) {
                 val intent = Intent()
+                intent.putExtra("Faculty", faculty_dropdown.text.toString())
                 intent.putExtra("Major", program_dropdown.text.toString())
                 intent.setClass(this, ChecklistActivity::class.java)
                 startActivity(intent)
