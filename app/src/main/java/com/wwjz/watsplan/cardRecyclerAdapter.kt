@@ -13,6 +13,7 @@ import android.widget.TextView
 
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import java.lang.Integer.min
 
 
 class cardRecyclerAdapter(context : Context) : RecyclerView.Adapter<cardViewHolder>() {
@@ -45,7 +46,8 @@ class cardRecyclerAdapter(context : Context) : RecyclerView.Adapter<cardViewHold
     override fun onBindViewHolder(holder: cardViewHolder, position: Int) {
         holder.cardText!!.text = model.cards[position].text
         val newAdapter = CheckBoxAdapter(position,cxt, this)
-        val gridLayoutManager = GridLayoutManager(cxt, 3)
+        val colNum = min(model.cards[position].items.size, 3)
+        val gridLayoutManager = GridLayoutManager(cxt, colNum)
         holder.cardGrid!!.layoutManager = gridLayoutManager
         holder.cardGrid!!.adapter = newAdapter
 
@@ -57,6 +59,17 @@ class cardRecyclerAdapter(context : Context) : RecyclerView.Adapter<cardViewHold
 
         holder.cardProgress!!.progress = model.cards[position].progress
 
+    }
+
+    fun applyFilter(low: Int, high : Int) {
+        model.cards.clear()
+
+        for (c in model.storedCards) {
+            if (c.progress in low..high) {
+                model.cards.add(c)
+            }
+        }
+        Handler().post(Runnable { notifyDataSetChanged() })
     }
 
 }

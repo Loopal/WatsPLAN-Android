@@ -7,11 +7,98 @@
     android:layout_height="match_parent"
     tools:context=".ChecklistActivity">
 
+    <RelativeLayout
+        android:background="#000000"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:id="@+id/titleHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/facultyLogo"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+        <TextView
+            android:id="@+id/majorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/droid_sans"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_below="@id/facultyLogo"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintTop_toBottomOf="@id/facultyLogo"
+            android:layout_marginBottom="5dp"
+            />
+    </RelativeLayout>
+
+
+
+    <RadioGroup android:id="@+id/toggleGroup"
+        app:layout_constraintTop_toBottomOf="@id/titleHolder"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+
+        <ToggleButton android:id="@+id/selectAll"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:textOn="All"
+            android:textOff="ALL"
+            android:background="@color/uwYellow"
+            android:textColor="#000000"
+            android:onClick="toggleFilter"
+            android:checked="true"
+            />
+        <ToggleButton android:id="@+id/selectChecked"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:textOn="Checked"
+            android:textOff="Checked"
+            android:onClick="toggleFilter"
+            android:background="#000000"
+            android:textColor="@color/uwYellow"
+            />
+
+        <ToggleButton android:id="@+id/selectUnchecked"
+            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_weight="1"
+            android:textOn="Unchecked"
+            android:textOff="Unchecked"
+            android:onClick="toggleFilter"
+            android:background="#000000"
+            android:textColor="@color/uwYellow"
+            />
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/bar2"
+        app:layout_constraintTop_toBottomOf="@id/toggleGroup"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:orientation="vertical"
+        android:background="#787878"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cardRecycler"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/bar2"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constrainedHeight="true"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
