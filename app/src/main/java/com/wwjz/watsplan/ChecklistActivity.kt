@@ -141,15 +141,14 @@ class ChecklistActivity : AppCompatActivity() {
                     val f = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save")
                     f.createNewFile()
                     f.printWriter().use {
-                        it.println(model.storedCards.size.toString())
                         for (c in model.storedCards) {
                             var temp = ""
-                            temp += c.text + " "
-                            temp += c.done.toString() + " "
-                            temp += c.checkedBoxes.toString() + " "
-                            temp += c.num.toString() + " "
-                            temp += c.progress.toString() + " "
-                            temp += c.items.toString()
+                            temp += c.text + "?"
+                            temp += c.done.toString() + "?"
+                            temp += c.checkedBoxes.joinToString(separator = ";") + "?"
+                            temp += c.num.toString() + "?"
+                            temp += c.progress.toString() + "?"
+                            temp += c.items.joinToString(separator = ";")
                             it.println(temp)
                         }
                     }
@@ -161,6 +160,22 @@ class ChecklistActivity : AppCompatActivity() {
                 }
             }
             .show()
+    }
+
+    fun loadChecklist(s : String){
+        val lines = File(this.getDir("saves", Context.MODE_PRIVATE), "$s.save").readLines()
+        model.storedCards.clear()
+        model.cards.clear()
+        for(ll in lines) {
+            val temp = ll.split("?")
+            val curCard = Card(temp[0], temp[1].toBoolean(),temp[3].toInt(), temp[5].split(";").toList())
+            curCard.progress = temp[4].toInt()
+            curCard.checkedBoxes = temp[2].split(";").map{it.toInt() }.toMutableList()
+            model.storedCards.add(curCard)
+            model.cards.addAll(model.storedCards)
+            newAdapter.notifyDataSetChanged()
+        }
+
     }
 
 
