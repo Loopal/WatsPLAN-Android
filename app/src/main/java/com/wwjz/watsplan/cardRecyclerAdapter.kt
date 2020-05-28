@@ -46,7 +46,13 @@ class cardRecyclerAdapter(context : Context) : RecyclerView.Adapter<cardViewHold
     override fun onBindViewHolder(holder: cardViewHolder, position: Int) {
         holder.cardText!!.text = model.cards[position].text
         val newAdapter = CheckBoxAdapter(position,cxt, this)
-        val colNum = min(model.cards[position].items.size, 3)
+        val maxLength = model.cards[position].items.maxBy {it.length}?.length
+        var colNum = min(model.cards[position].items.size, 3)
+        if (maxLength != null) {
+            if(maxLength >= 40){
+                colNum = 1;
+            }
+        }
         val gridLayoutManager = GridLayoutManager(cxt, colNum)
         holder.cardGrid!!.layoutManager = gridLayoutManager
         holder.cardGrid!!.adapter = newAdapter
