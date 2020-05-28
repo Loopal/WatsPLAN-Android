@@ -44,6 +44,7 @@ var permissionDeny = true
 class MainActivity : AppCompatActivity() {
     val faculties = mutableListOf<String>()
     val programs = mutableListOf<String>()
+    val options = mutableListOf<String>()
     val saves = listOf<String>()
     var handler = Handler()
 
@@ -101,6 +102,32 @@ class MainActivity : AppCompatActivity() {
                 programs
             )
             program_dropdown.setAdapter(padapter)
+        }
+
+        program_dropdown.setOnItemClickListener { parent, view, position, id ->
+            //Query for option (if applicable)
+            option_dropdown.completionHint
+            option_dropdown.setText("")
+            val odoc = db.collection(parent.adapter.getItem(position).toString())
+
+            odoc.get()
+                .addOnSuccessListener { documents ->
+                    options.clear()
+                    for (document in documents) {
+                        options.add(document.id)
+                        Log.d("qq", "${document.id} => ${document.data}")
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.w("qq", "Error getting documents: ", exception)
+                }
+
+            val oadapter = ArrayAdapter<String>(
+                this,
+                R.layout.dropdown_menu_popup_item,
+                options
+            )
+            option_dropdown.setAdapter(oadapter)
         }
         /*
         val docRef = db.collection("/Majors/").document("Bachelor of Computer Science (BCS)")
@@ -260,7 +287,23 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("Faculty", faculty_dropdown.text.toString())
                 intent.putExtra("Major", program_dropdown.text.toString())
                 intent.setClass(this, ChecklistActivity::class.java)
-                startActivity(intent)
+                if(options.contains(option_dropdown.text.toString())){
+                    if(option_dropdown.text.toString() != "Just click CREATE button if no option"){
+                        intent.putExtra("Option", option_dropdown.text.toString())
+                        startActivity(intent)
+                    }
+                    else
+                        startActivity(intent)
+                }
+                else if(option_dropdown.text.toString() == "")
+                    startActivity(intent)
+                else{
+                    Snackbar.make(createSubmit,"Invalid faculty/program/option, please try again.",
+                        Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
+                }
             } else {
                 Snackbar.make(createSubmit,"Invalid faculty/program, please try again.",
                     Snackbar.LENGTH_LONG)

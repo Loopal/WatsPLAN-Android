@@ -52,7 +52,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.4">
+            app:layout_constraintVertical_bias="0.3">
 
 
             <androidx.cardview.widget.CardView
@@ -120,8 +120,8 @@
                 android:background="@drawable/roundbtn"
                 android:text="Load"
                 android:textColor="@color/uwYellow"
-                app:cornerRadius="10dp"
                 android:translationY="-20dp"
+                app:cornerRadius="10dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/saveCard" />
@@ -183,7 +183,6 @@
                         android:layout_height="wrap_content"
                         android:layout_marginHorizontal="20dp"
                         android:layout_marginTop="20dp"
-                        android:layout_marginBottom="40dp"
                         android:hint="Enter or select your program"
                         app:boxBackgroundColor="@color/uwYellow"
                         app:boxStrokeColor="#000000"
@@ -191,6 +190,26 @@
 
                         <AutoCompleteTextView
                             android:id="@+id/program_dropdown"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:textSize="14sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="40dp"
+                        android:hint="Enter or select your option (if applicable)"
+                        app:boxBackgroundColor="@color/uwYellow"
+                        app:boxStrokeColor="#000000"
+                        app:hintTextColor="#000000">
+
+                        <AutoCompleteTextView
+                            android:id="@+id/option_dropdown"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
 
