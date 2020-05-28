@@ -48,7 +48,7 @@ class cardRecyclerAdapter(context : Context) : RecyclerView.Adapter<cardViewHold
             if (model.cards[position].num == model.cards[position].items.size) {
                 holder.cardText!!.text = "Select All From " + model.cards[position].text
             } else {
-                holder.cardText!!.text = "Select " + model.cards[position].text + "From"
+                holder.cardText!!.text = "Select " + model.cards[position].text + "From "
             }
         } else {
             holder.cardText!!.text = "Select " + model.cards[position].text
