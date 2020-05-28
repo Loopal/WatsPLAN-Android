@@ -1,0 +1,28 @@
+﻿COMM.I;1;EMLS101R;EMLS102R;EMLS/ENGL129R;ENGL109;SPCOM100;SPCOM223
+COMM.II;1; Additional from COMM.1;EMLS103R;EMLS104R;EMLS110R;ENGL108B;ENGL108D;ENGL119;ENGL208B;ENGL209;ENGL210E;ENGL210F;ENGL378/MTHEL300;SPCOM225;SPCOM227;SPCOM228
+CS1[134]5;1;CS115;CS135;CS145
+CS1[134]6;1;CS116;CS136;CS146
+MATH1[34]5;1;MATH135;MATH145
+MATH1[034]6;1;MATH106;MATH136;MATH146
+MATH1[234]7;1;MATH127;MATH137;MATH147
+MATH1[234]8;1;MATH128;MATH138;MATH148
+Math2[34]5;1;MATH235;MATH245
+STAT2[34]0;1;STAT230;STAT240
+STAT2[34]1;1;STAT231;STAT241
+MATH2[34]7;1;MATH237;MATH247
+Following;8;AMATH231;AMATH242/CS371;AMATH251;AMATH332/PMATH332;AMATH342;AMATH351AMATH353;PHYS121
+Following;3;400-level AMATH;400-level AMATH;400-level AMATH
+Additional AMATH;1;300/400-level AMATH course
+Subject Concentration;1;4 additional courses from faculties of Science;4 additional courses from faculties of Engineering;4 additional courses from department of Economics
+Additional math;5;math course;math course;math course;math course;math course
+Following;9;AMATH231;AMATH242/CS371;AMATH251;AMATH342;AMATH442;CS230;CS234;CS475;STAT341
+Following;1;1CO250;CO255
+Following;2;400-level AMATH course;400-level AMATH course
+Additional;2;300/400-level AMATH course;300/400-level AMATH course;
+Total Non-Math;10;Non-Math;Non-Math;Non-Math;Non-Math;Non-Math;Non-Math;Non-Math;Non-Math;Non-Math;Non-Math
+Terms;1;Seven(regular) or eight(co-op) terms enrolled in at least three courses totalling 1.5 units
+Failed;1;No more than 2.0 units of failed courses
+Unusable;1;No more than 5.0 units of unusable course attempts (failures and repeats of passed courses)
+MAVG;1;Major average of 65% or higher
+CAVG;1;Cumulative average of 60% or higher
+Co-op;3;2.5 COOP units;2.5 PD units;0.39 WKRPT units

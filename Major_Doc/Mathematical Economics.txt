@@ -1,0 +1,26 @@
+﻿COMM.I;1;EMLS101R;EMLS102R;EMLS/ENGL129R;ENGL109;SPCOM100;SPCOM223
+COMM.II;1; Additional from COMM.1;EMLS103R;EMLS104R;EMLS110R;ENGL108B;ENGL108D;ENGL119;ENGL208B;ENGL209;ENGL210E;ENGL210F;ENGL378/MTHEL300;SPCOM225;SPCOM227;SPCOM228
+CS1[134]5;1;CS115;CS135;CS145
+CS1[134]6;1;CS116;CS136;CS146
+MATH1[34]5;1;MATH135;MATH145
+MATH1[034]6;1;MATH106;MATH136;MATH146
+MATH1[234]7;1;MATH127;MATH137;MATH147
+MATH1[234]8;1;MATH128;MATH138;MATH148
+Math2[34]5;1;MATH235;MATH245
+STAT2[34]0;1;STAT230;STAT240
+STAT2[34]1;1;STAT231;STAT241
+MATH2[34]7;1;MATH237;MATH247
+Following;9;ECON101;ECON102;ECON290;ECON306;ECON391;ECON393;ECON472;ECON491;ECON496
+Following;1;ECON406;ECON407;ECON408;ECON409
+Additional;4;300/400-level ECON;300/400-level ECON;300/400-level ECON;300/400-level ECON
+Following;1;CO250;CO255
+Following;4;AMATH331/PMATH331;AMATH350;STAT331;STAT443
+Additional math courses;7;math course;math course;math course;math course;math course;math course;math course;
+Additonal electives;2;Any;Any
+Additional Req;1;Students must choose one of (ACTSC 372 or ECON 371) and one of (STAT 331 or ECON 421). If a student chooses ACTSC 372 or STAT 331, it will count as one of the mathematics group choices. If a student chooses ECON 371 or ECON 421, it will count as one of the economics group choices.
+Terms;1;Seven(regular) or eight(co-op) terms enrolled in at least three courses totalling 1.5 units
+Failed;1;No more than 2.0 units of failed courses
+Unusable;1;No more than 5.0 units of unusable course attempts (failures and repeats of passed courses)
+MAVG;1;Major average of 60% or higher
+CAVG;1;Cumulative average of 60% or higher
+Co-op;3;2.5 COOP units;2.5 PD units;0.39 WKRPT units
