@@ -32,6 +32,8 @@ class ChecklistActivity : AppCompatActivity() {
         val m = intent.getStringExtra("Major")
         val f = intent.getStringExtra("Faculty")
 
+        Log.d("asd",m.toString())
+
 
         if (s != null) {
             //Load save data

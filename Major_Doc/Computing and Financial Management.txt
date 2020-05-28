@@ -1,0 +1,24 @@
+﻿CS1[134]5;1;CS115;CS135;CS145
+CS1[34]6;1;CS136;CS146
+MATH1[34]5;1;MATH135;MATH145
+MATH1[34]6;1;MATH136;MATH146
+MATH1[234]7;1;MATH127;MATH137;MATH147
+MATH1[234]8;1;MATH128;MATH138;MATH148
+MATH2[34]9;1;MATH239;MATH249
+STAT2[34]0;1;STAT230;STAT240
+STAT2[34]1;1;STAT231;STAT241
+Following;10;AFM101;AFM102;AFM121;AFM131;AFM231;AFM272/ACTSC291;AFM322;AFM372/ACTSC391;AFM424;AFM425
+Following;5;CS240;CS241;CS245;CS246;CS341;
+Following;3;ECON101;ECON102;STAT373
+Following;2;AFM291;Any 300/400-level AFM course;ECON201;ECON206;ECON207;ECON231;ECON332;MGMT244;PHIL215
+Following;2;Any 300/400-level AFM course;Any 300/400-level AFM course
+Additional;1;CS440-CS498;CO 487
+Additional;2;CS251;CS340-CS398;CS440-CS498;CO487
+Following;2;2ENGL109;ENGL119;EMLS129R/ENGL129R;SPCOM223
+Additional electives;4;Any;Any;Any;Any
+Terms;1;Seven(regular) or eight(co-op) terms enrolled in at least three courses totalling 1.5 units
+Failed;1;No more than 2.0 units of failed courses
+Unusable;1;No more than 5.0 units of unusable course attempts (failures and repeats of passed courses)
+MAVG;1;Major average of 60% or higher
+CAVG;1;Cumulative average of 60% or higher
+Co-op;3;2.5 COOP units;2.5 PD units;0.39 WKRPT units
