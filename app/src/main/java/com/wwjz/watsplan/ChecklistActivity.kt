@@ -32,6 +32,8 @@ class ChecklistActivity : AppCompatActivity() {
         val m = intent.getStringExtra("Major")
         val f = intent.getStringExtra("Faculty")
 
+        Log.d("asd",m.toString())
+
 
         if (s != null) {
             //Load save data
@@ -76,8 +78,12 @@ class ChecklistActivity : AppCompatActivity() {
         for (item in major.Requirements!!) {
             val temp = item.split(";").toList()
             if (temp.size > 3) {
-                model.storedCards.add(Card("Select ${temp[1]} From ${temp[0]}", false, temp[1].toInt(), temp.subList(2,temp.size)))
-            } else {
+                if(temp[1].toInt() == temp.subList(2,temp.size).size)
+                    model.storedCards.add(Card("Select All From ${temp[0]}", false, temp[1].toInt(), temp.subList(2,temp.size)))
+                else
+                    model.storedCards.add(Card("Select ${temp[1]} From ${temp[0]}", false, temp[1].toInt(), temp.subList(2,temp.size)))
+            }
+            else {
                 model.storedCards.add(Card("Select ${temp[0]}", false, temp[1].toInt(), temp.subList(2,temp.size)))
             }
 
