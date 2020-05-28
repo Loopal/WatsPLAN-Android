@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -29,14 +30,20 @@ import com.google.firebase.firestore.Source
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.Toast
+import androidx.core.net.toUri
 import com.afollestad.materialdialogs.MaterialDialog
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import kotlinx.android.synthetic.main.activity_control.*
+import kotlinx.android.synthetic.main.activity_dev_control.*
 import kotlinx.android.synthetic.main.activity_register.*
+import java.io.File
+import java.io.FileOutputStream
 
 
 var permissionDeny = true
@@ -56,6 +63,8 @@ class MainActivity : AppCompatActivity() {
         val db = FirebaseFirestore.getInstance()
         //Query for faculties
         val fdoc = db.collection("/Faculties/")
+        // Create the Cloud Storage for user data
+        val storage = FirebaseStorage.getInstance()
 
 
         fdoc.get()
@@ -267,6 +276,41 @@ class MainActivity : AppCompatActivity() {
 
 
         loadSubmit.setOnClickListener {
+
+            val storageRef = storage.reference
+            val fileReference = storageRef.child("userData/fileName.save")
+            //val localFile = File.createTempFile("downloadedFile","save")
+
+            val ONE_MEGABYTE: Long = 1024 * 1024
+            fileReference.getBytes(ONE_MEGABYTE).addOnSuccessListener {
+                // Data for "images/island.jpg" is returned, use this as needed
+                println("here")
+                println(String(it,Charsets.UTF_8))
+            }.addOnFailureListener {
+                // Handle any errors
+            }
+
+            /*fileReference.getFile(localFile)
+                .addOnFailureListener{
+                    Snackbar.make(loadSubmit,"Download Fail",
+                        Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
+                }
+                .addOnSuccessListener{
+                    Snackbar.make(loadSubmit,"Download Success",
+                        Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
+                }
+            println("Here")
+            println(localFile.name)
+            println(localFile.path)
+            println(localFile.readLines())*/
+
+
             if (saves.contains(save_dropdown.text.toString())) {
                 val intent = Intent()
                 intent.putExtra("Save", save_dropdown.text.toString())
@@ -282,6 +326,45 @@ class MainActivity : AppCompatActivity() {
         }
 
         createSubmit.setOnClickListener {
+
+            // for test
+            val text = "fileName"
+            val f = File(this.getDir("saves", Context.MODE_PRIVATE), "$text.save")
+            f.createNewFile()
+            f.printWriter().use {
+                val temp = "This is a test saving file statement"
+                it.println(temp)
+            }
+            println("Here")
+            println(f.path)
+
+
+            val storageRef = storage.reference
+            var file = Uri.fromFile(f)
+            val testFileRef = storageRef.child("userData/${file.lastPathSegment}")
+
+            var uploadTask = testFileRef.putFile(file)
+
+            uploadTask
+                .addOnFailureListener{
+                Snackbar.make(createSubmit,"Upload Fail",
+                    Snackbar.LENGTH_LONG)
+                    .setBackgroundTint(Color.BLACK)
+                    .setTextColor(Color.parseColor("#FFD54F"))
+                    .show()
+                }
+                .addOnSuccessListener {
+                    Snackbar.make(createSubmit,"Upload Success",
+                        Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
+                }
+
+
+
+
+
             if (programs.contains(program_dropdown.text.toString())) {
                 val intent = Intent()
                 intent.putExtra("Faculty", faculty_dropdown.text.toString())
