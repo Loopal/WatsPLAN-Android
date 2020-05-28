@@ -1,0 +1,31 @@
+﻿COMM.I;1;EMLS101R;EMLS102R;EMLS/ENGL129R;ENGL109;SPCOM100;SPCOM223
+COMM.II;1; Additional from COMM.1;EMLS103R;EMLS104R;EMLS110R;ENGL108B;ENGL108D;ENGL119;ENGL208B;ENGL209;ENGL210E;ENGL210F;ENGL378/MTHEL300;SPCOM225;SPCOM227;SPCOM228
+CS1[134]5;1;CS115;CS135;CS145
+CS1[134]6;1;CS116;CS136;CS146
+MATH1[34]5;1;MATH135;MATH145
+MATH1[034]6;1;MATH106;MATH136;MATH146
+MATH1[234]7;1;MATH127;MATH137;MATH147
+MATH1[234]8;1;MATH128;MATH138;MATH148
+Following;1;MATH207;MATH229;MATH237;MATH247;MATH239;MATH249
+Math2[234]5;1;MATH225;MATH235;MATH245
+STAT2[234]0;1;STAT220;STAT230;STAT240
+STAT2[234]1;1;STAT221;STAT231;STAT241
+Following;1;AFM72/ACTSC291;ACTSC221;ACTSC231;ACTSC371
+Following;5;AFM101;AFM102;BUS121W;ECON101;ECON102
+Following;1;AFM121/ARBUS101;BUS111W
+Following;1;ARBUS302/MGMT244;BUS352w
+Following;1;CO227;CO250;CO255
+Following;1;CS200;CS338;CS430;STAT340
+Following;1;CS330
+Following;3;LS271/PACS202;LS319/PACS323;Any AFM/BUS/COMM/ECON/HRM/MSCI/STV
+Following;1;STAT321;STAT322
+Following;7;math course;math course;math course;math course;math course;math course;math course;
+Additional electives;10;Any;Any;Any;Any;Any;Any;Any;Any;Any;Any
+Total 300/400-level math;10;300/400-level math;300/400-level math;300/400-level math;300/400-level math;300/400-level math;300/400-level math;300/400-level math;300/400-level math;300/400-level math;300/400-level math;
+Total Non-math;10;Non-math;Non-math;Non-math;Non-math;Non-math;Non-math;Non-math;Non-math;Non-math;Non-math
+Terms;1;Seven(regular) or eight(co-op) terms enrolled in at least three courses totalling 1.5 units
+Failed;1;No more than 2.0 units of failed courses
+Unusable;1;No more than 5.0 units of unusable course attempts (failures and repeats of passed courses)
+MAVG;1;Major average of 60% or higher
+CAVG;1;Cumulative average of 60% or higher
+Co-op;3;2.5 COOP units;2.5 PD units;0.39 WKRPT units
