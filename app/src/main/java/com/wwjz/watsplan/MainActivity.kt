@@ -37,7 +37,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_control.*
 import kotlinx.android.synthetic.main.activity_register.*
-
+import java.io.File
 
 var permissionDeny = true
 
@@ -45,12 +45,26 @@ class MainActivity : AppCompatActivity() {
     val faculties = mutableListOf<String>()
     val programs = mutableListOf<String>()
     val options = mutableListOf<String>()
-    val saves = listOf<String>()
+    val saves = mutableListOf<String>()
     var handler = Handler()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        //Get local saves
+        val l = this.getDir("saves", Context.MODE_PRIVATE)
+            .walk()
+            .filter { it.extension == "save" }
+            .forEach { saves.add(it.nameWithoutExtension) }
+
+        val sadapter = ArrayAdapter<String>(
+            this,
+            R.layout.dropdown_menu_popup_item,
+            saves
+        )
+
+        save_dropdown.setAdapter(sadapter)
 
         //Get DB
         val db = FirebaseFirestore.getInstance()
