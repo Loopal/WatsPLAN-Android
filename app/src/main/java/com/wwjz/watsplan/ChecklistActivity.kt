@@ -51,7 +51,7 @@ class ChecklistActivity : AppCompatActivity() {
             //Query for Major
             setlogo(f)
             if (o != null) {
-                majorName.text = "$m | $o"
+                majorName.text = m + " | " +o
                 val docRef = db.collection("/Majors/").document("$m | $o")
                 docRef.get().addOnSuccessListener { documentSnapshot ->
                     major = documentSnapshot.toObject(Major::class.java)!!
