@@ -17,5 +17,4 @@ class Card(s: String, b:Boolean, n : Int, i: List<String>) {
         items = i
     }
 
-
 }
