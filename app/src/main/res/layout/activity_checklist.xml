@@ -108,10 +108,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="10dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/save_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="saveChecklist"
+        android:src="@drawable/save_icon"
+        android:backgroundTint="@color/uwYellow"
+        app:backgroundTint="#FFFFFF"
+        app:borderWidth="3dp"
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

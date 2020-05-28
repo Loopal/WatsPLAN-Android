@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
 import android.widget.ToggleButton
@@ -13,11 +14,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.children
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_checklist.*
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.dialog.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.ObjectOutputStream
+import java.lang.Exception
 
 
 class ChecklistActivity : AppCompatActivity() {
@@ -27,6 +32,7 @@ class ChecklistActivity : AppCompatActivity() {
     var major = Major()
     var model = Model.mInstance
     var newAdapter = cardRecyclerAdapter(this)
+    var facultyName = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,16 +47,18 @@ class ChecklistActivity : AppCompatActivity() {
         val f = intent.getStringExtra("Faculty")
         val o = intent.getStringExtra("Option")
 
-        Log.d("asd",m.toString())
-        Log.d("asd",o.toString())
-
+        if(f != null) {
+            model.facultyName = f
+        }
 
         if (s != null) {
             //Load save data
+            loadChecklist(s)
         } else if (m != null) {
             //Query for Major
             setlogo(f)
             if (o != null) {
+                model.majorName = m + " | " +o
                 majorName.text = m + " | " +o
                 val docRef = db.collection("/Majors/").document("$m | $o")
                 docRef.get().addOnSuccessListener { documentSnapshot ->
@@ -58,6 +66,7 @@ class ChecklistActivity : AppCompatActivity() {
                     updateCards()
                 }
             } else {
+                model.majorName = m
                 majorName.text = m
                 val docRef = db.collection("/Majors/").document(m.toString())
                 docRef.get().addOnSuccessListener { documentSnapshot ->
@@ -130,19 +139,23 @@ class ChecklistActivity : AppCompatActivity() {
         val input = EditText(this)
         input.inputType = InputType.TYPE_CLASS_TEXT
 
-        AlertDialog.Builder(this)
-            .setTitle("Save")
-            .setMessage("Save your current checklist")
-            .setView(input)
-            .setNegativeButton("cancel") { dialog, which ->
-                dialog.dismiss()
-            }
-            .setPositiveButton("confirm") { dialog, which ->
-                val curText = input.getText().toString()
-                if (curText != "") {
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog, null)
+
+        val mAlertDialog = AlertDialog.Builder(this).setView(mDialogView).show()
+
+        mAlertDialog.dialog_cancel.setOnClickListener {
+            mAlertDialog.dismiss()
+        }
+
+        mAlertDialog.dialog_confirm.setOnClickListener {
+            val curText = mAlertDialog.dialogEditText.text.toString()
+            if (curText != "") {
+                try {
                     val f = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save")
                     f.createNewFile()
                     f.printWriter().use {
+                        it.println(model.facultyName)
+                        it.println(model.majorName)
                         for (c in model.storedCards) {
                             var temp = ""
                             temp += c.text + "?"
@@ -154,31 +167,57 @@ class ChecklistActivity : AppCompatActivity() {
                             it.println(temp)
                         }
                     }
-                    val l = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save").readLines()
-                    for (ll in l) {
-                        Log.d("asd",ll)
-                    }
-
+                    mAlertDialog.dismiss()
+                    Snackbar.make(selectAll,"Save file created/updated successfully",
+                        Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
+                } catch(e : Exception){
+                    Snackbar.make(mDialogView,"Unable to create/update save file",
+                        Snackbar.LENGTH_SHORT)
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
                 }
+
+                val l = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save").readLines()
+                for (ll in l) {
+                    Log.d("asd",ll)
+                }
+            } else {
+                Snackbar.make(mDialogView,"Invalid save name",
+                    Snackbar.LENGTH_SHORT)
+                    .setBackgroundTint(Color.BLACK)
+                    .setTextColor(Color.parseColor("#FFD54F"))
+                    .show()
             }
-            .show()
+        }
     }
 
     fun loadChecklist(s : String){
         val lines = File(this.getDir("saves", Context.MODE_PRIVATE), "$s.save").readLines()
         model.storedCards.clear()
         model.cards.clear()
-        for(ll in lines) {
-            val temp = ll.split("?")
+        Log.d("lel", lines.size.toString())
+        model.facultyName = lines[0]
+        model.majorName = lines[1]
+        setlogo(lines[0])
+        majorName.text = lines[1]
+        for(i in 2 until lines.size) {
+            val temp = lines[i].split("?").toList()
             val curCard = Card(temp[0], temp[1].toBoolean(),temp[3].toInt(), temp[5].split(";").toList())
             curCard.progress = temp[4].toInt()
-            curCard.checkedBoxes = temp[2].split(";").map{it.toInt() }.toMutableList()
+            when(temp[2]) {
+                "" -> curCard.checkedBoxes = mutableListOf()
+                else -> curCard.checkedBoxes = temp[2].split(";").map{it.toInt() }.toMutableList()
+            }
             model.storedCards.add(curCard)
-            model.cards.addAll(model.storedCards)
-            newAdapter.notifyDataSetChanged()
         }
-
+        model.cards.addAll(model.storedCards)
+        newAdapter.notifyDataSetChanged()
     }
+
 
 
 }
