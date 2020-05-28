@@ -42,21 +42,23 @@ class ChecklistActivity : AppCompatActivity() {
         val o = intent.getStringExtra("Option")
 
         Log.d("asd",m.toString())
+        Log.d("asd",o.toString())
 
 
         if (s != null) {
             //Load save data
         } else if (m != null) {
             //Query for Major
-            majorName.text = m
             setlogo(f)
             if (o != null) {
+                majorName.text = "$m | $o"
                 val docRef = db.collection("/Majors/").document("$m | $o")
                 docRef.get().addOnSuccessListener { documentSnapshot ->
                     major = documentSnapshot.toObject(Major::class.java)!!
                     updateCards()
                 }
             } else {
+                majorName.text = m
                 val docRef = db.collection("/Majors/").document(m.toString())
                 docRef.get().addOnSuccessListener { documentSnapshot ->
                     major = documentSnapshot.toObject(Major::class.java)!!
@@ -177,7 +179,6 @@ class ChecklistActivity : AppCompatActivity() {
         }
 
     }
-
 
 
 }
