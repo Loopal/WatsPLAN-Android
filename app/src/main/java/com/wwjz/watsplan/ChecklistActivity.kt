@@ -17,8 +17,8 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_checklist.*
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.dialog.*
+import kotlinx.android.synthetic.main.delete_dialog.*
+import kotlinx.android.synthetic.main.edittext_dialog.*
 import java.io.File
 import java.io.FileOutputStream
 import java.io.ObjectOutputStream
@@ -33,11 +33,24 @@ class ChecklistActivity : AppCompatActivity() {
     var model = Model.mInstance
     var newAdapter = cardRecyclerAdapter(this)
     var facultyName = ""
+    var fabExpand = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_checklist)
 
+        //fabs
+        fabExpand = false
+        menuButton.setOnClickListener {
+            when(fabExpand) {
+                true->closefab()
+                false->openfab()
+            }
+        }
+
+        model.facultyName = ""
+        model.majorName = ""
+        model.fileName = ""
         model.cards.clear()
         model.storedCards.clear()
 
@@ -139,15 +152,15 @@ class ChecklistActivity : AppCompatActivity() {
         val input = EditText(this)
         input.inputType = InputType.TYPE_CLASS_TEXT
 
-        val mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog, null)
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.edittext_dialog, null)
 
         val mAlertDialog = AlertDialog.Builder(this).setView(mDialogView).show()
 
-        mAlertDialog.dialog_cancel.setOnClickListener {
+        mAlertDialog.edit_dialog_cancel.setOnClickListener {
             mAlertDialog.dismiss()
         }
 
-        mAlertDialog.dialog_confirm.setOnClickListener {
+        mAlertDialog.edit_dialog_confirm.setOnClickListener {
             val curText = mAlertDialog.dialogEditText.text.toString()
             if (curText != "") {
                 try {
@@ -196,6 +209,7 @@ class ChecklistActivity : AppCompatActivity() {
     }
 
     fun loadChecklist(s : String){
+        model.fileName = s
         val lines = File(this.getDir("saves", Context.MODE_PRIVATE), "$s.save").readLines()
         model.storedCards.clear()
         model.cards.clear()
@@ -216,6 +230,52 @@ class ChecklistActivity : AppCompatActivity() {
         }
         model.cards.addAll(model.storedCards)
         newAdapter.notifyDataSetChanged()
+    }
+
+    fun deleteChecklist(v : View) {
+
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.delete_dialog, null)
+
+        val mAlertDialog = AlertDialog.Builder(this).setView(mDialogView).show()
+
+        mAlertDialog.delete_dialog_cancel.setOnClickListener {
+            mAlertDialog.dismiss()
+        }
+
+        mAlertDialog.delete_dialog_confirm.setOnClickListener {
+            if (model.fileName == "") {
+                finish()
+            } else {
+                try {
+                    File(
+                        this.getDir("saves", Context.MODE_PRIVATE),
+                        "${model.fileName}.save"
+                    ).delete()
+                    finish()
+                } catch (e: Exception) {
+                    Snackbar.make(
+                        selectAll, "Error deleting save",
+                        Snackbar.LENGTH_LONG
+                    )
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
+                }
+            }
+        }
+    }
+
+
+    fun closefab() {
+        fabExpand = false
+        saveButton.animate().translationY(-200f)
+        deleteButton.animate().translationY(-400f)
+    }
+
+    fun openfab() {
+        fabExpand = true
+        saveButton.animate().translationY(0f)
+        deleteButton.animate().translationY(0f)
     }
 
 

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/dialog_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DELETE"
+            android:fontFamily="@font/droid_sans"
+            android:textStyle="bold"
+            android:textColor="@color/uwYellow"
+            android:textSize="32sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginVertical="10dp"
+            />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:theme="@style/AppTheme.NoActionBar"
+        app:layout_constraintTop_toBottomOf="@id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/uwYellow"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="10dp"
+            android:layout_marginHorizontal="20dp"
+            android:fontFamily="@font/droid_sans"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:text="Are you sure you want to delete current checklist and return to main menu?"
+            >
+
+        </TextView>
+
+
+        <Button
+            android:id="@+id/delete_dialog_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/delete"
+            android:layout_alignEnd="@id/delete"
+            android:layout_marginVertical="10dp"
+            android:background="@drawable/roundbtn"
+            android:text="Confirm"
+            android:textColor="@color/uwYellow"
+            />
+
+        <Button
+            android:id="@+id/delete_dialog_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/delete"
+            android:layout_toLeftOf="@id/delete_dialog_confirm"
+            android:layout_marginVertical="10dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/roundbtn"
+            android:text="Cancel"
+            android:textColor="@color/uwYellow"
+            />
+
+    </RelativeLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
