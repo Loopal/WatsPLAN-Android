@@ -5,12 +5,12 @@ import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
-
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.lang.Integer.min
@@ -69,6 +69,15 @@ class cardRecyclerAdapter(context : Context) : RecyclerView.Adapter<cardViewHold
             holder.cardComment!!.visibility = View.GONE
         } else {
             holder.cardComment!!.visibility = View.VISIBLE
+            if (model.cards[position].comment != "") {
+                holder.cardComment!!.setText(model.cards[position].comment)
+            }
+
+            holder.cardComment!!.setOnFocusChangeListener { view, hasFocus ->
+                if (!hasFocus) {
+                    model.cards[position].comment = holder.cardComment!!.text.toString()
+                }
+            }
         }
 
         holder.cardProgress!!.progress = model.cards[position].progress
@@ -99,6 +108,7 @@ class cardViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         cardGrid = v.findViewById(R.id.boxGrid)
         cardComment = v.findViewById(R.id.cardComment)
         cardProgress = v.findViewById(R.id.cardProgress)
+
     }
 
 }
