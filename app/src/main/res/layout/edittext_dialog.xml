@@ -36,15 +36,27 @@
         android:orientation="vertical"
         >
 
+        <TextView
+            android:id="@+id/dialog_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="22dp"
+            android:layout_marginVertical="10dp"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            >
+        </TextView>
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/dialogTextField"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog_desc"
             android:hint="Enter save file name"
             android:textColorHint="#000000"
             app:hintTextColor="#000000"
             app:boxStrokeColor="#000000"
-            android:layout_marginTop="20dp"
             android:layout_marginHorizontal="20dp"
             >
 
@@ -64,9 +76,11 @@
             android:id="@+id/edit_dialog_confirm"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/dialogTextField"
-            android:layout_alignEnd="@id/dialogTextField"
-            android:layout_marginVertical="10dp"
+            android:layout_below="@id/dialog_desc"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
             android:background="@drawable/roundbtn"
             android:text="Confirm"
             android:textColor="@color/uwYellow"
@@ -76,9 +90,10 @@
             android:id="@+id/edit_dialog_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/dialogTextField"
+            android:layout_below="@id/dialog_desc"
             android:layout_toLeftOf="@id/edit_dialog_confirm"
-            android:layout_marginVertical="10dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="10dp"
             android:layout_marginRight="40dp"
             android:background="@drawable/roundbtn"
             android:text="Cancel"

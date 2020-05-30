@@ -9,6 +9,7 @@ class Card(s: String, b:Boolean, n : Int, i: List<String>) {
     var num = 0
     var progress = 0
     var items: List<String> = listOf<String>()
+    var comment = ""
 
     init {
         text = s

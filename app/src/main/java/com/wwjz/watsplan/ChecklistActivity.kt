@@ -1,8 +1,10 @@
 package com.wwjz.watsplan
 
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
 import android.text.InputType
 import android.util.Log
 import android.view.LayoutInflater
@@ -13,16 +15,13 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.children
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_checklist.*
 import kotlinx.android.synthetic.main.delete_dialog.*
 import kotlinx.android.synthetic.main.edittext_dialog.*
+import kotlinx.android.synthetic.main.edittext_dialog.view.*
 import java.io.File
-import java.io.FileOutputStream
-import java.io.ObjectOutputStream
-import java.lang.Exception
 
 
 class ChecklistActivity : AppCompatActivity() {
@@ -115,6 +114,7 @@ class ChecklistActivity : AppCompatActivity() {
         cardRecycler.adapter = newAdapter
     }
 
+
     private fun updateCards() {
 
         for (item in major.Requirements!!) {
@@ -148,20 +148,29 @@ class ChecklistActivity : AppCompatActivity() {
     }
 
     fun saveChecklist(v : View) {
-
+        closefab()
         val input = EditText(this)
         input.inputType = InputType.TYPE_CLASS_TEXT
 
         val mDialogView = LayoutInflater.from(this).inflate(R.layout.edittext_dialog, null)
-
         val mAlertDialog = AlertDialog.Builder(this).setView(mDialogView).show()
+        if (model.fileName == "") {
+            mDialogView.dialogTextField.visibility = View.VISIBLE
+            mDialogView.dialog_desc.text = "Create a new save file"
+        } else {
+            mDialogView.dialogTextField.visibility = View.GONE
+            mDialogView.dialog_desc.text = "Overwrite save file ${model.fileName}?"
+        }
 
         mAlertDialog.edit_dialog_cancel.setOnClickListener {
             mAlertDialog.dismiss()
         }
 
         mAlertDialog.edit_dialog_confirm.setOnClickListener {
-            val curText = mAlertDialog.dialogEditText.text.toString()
+            var curText = model.fileName
+            if (curText == "") {
+                curText = mAlertDialog.dialogEditText.text.toString()
+            }
             if (curText != "") {
                 try {
                     val f = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save")
@@ -176,7 +185,8 @@ class ChecklistActivity : AppCompatActivity() {
                             temp += c.checkedBoxes.joinToString(separator = ";") + "?"
                             temp += c.num.toString() + "?"
                             temp += c.progress.toString() + "?"
-                            temp += c.items.joinToString(separator = ";")
+                            temp += c.items.joinToString(separator = ";") + "?"
+                            temp += c.comment
                             it.println(temp)
                         }
                     }
@@ -218,7 +228,7 @@ class ChecklistActivity : AppCompatActivity() {
         model.majorName = lines[1]
         setlogo(lines[0])
         majorName.text = lines[1]
-        for(i in 2 until lines.size) {
+        for(i in 2 until lines.size -1) {
             val temp = lines[i].split("?").toList()
             val curCard = Card(temp[0], temp[1].toBoolean(),temp[3].toInt(), temp[5].split(";").toList())
             curCard.progress = temp[4].toInt()
@@ -226,6 +236,7 @@ class ChecklistActivity : AppCompatActivity() {
                 "" -> curCard.checkedBoxes = mutableListOf()
                 else -> curCard.checkedBoxes = temp[2].split(";").map{it.toInt() }.toMutableList()
             }
+            curCard.comment = temp[6]
             model.storedCards.add(curCard)
         }
         model.cards.addAll(model.storedCards)
@@ -233,6 +244,7 @@ class ChecklistActivity : AppCompatActivity() {
     }
 
     fun deleteChecklist(v : View) {
+        closefab()
 
         val mDialogView = LayoutInflater.from(this).inflate(R.layout.delete_dialog, null)
 
