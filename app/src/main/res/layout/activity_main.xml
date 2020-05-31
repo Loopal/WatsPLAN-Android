@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/drawer_layout"
@@ -14,242 +15,275 @@
         android:background="#FFFFFF"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/welcome"
+        <ImageButton
+            android:id="@+id/navButton"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Welcome"
-            android:textColor="#000000"
-            android:textSize="36sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.264"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.092" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/menu_icon"
+            android:background="#FFFFFF"
+            android:onClick="onNavButtonClick"
+            />
 
 
         <TextView
-            android:id="@+id/select"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select to continue"
+            android:fontFamily="@font/droid_sans"
+            android:text="Welcome back, Warrior."
             android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="80dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/droid_sans"
+            android:text="Let's begin your degree check"
+            android:textColor="#787878"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="130dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintHorizontal_bias="0.278"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.174" />
+            android:layout_marginTop="170dp"
+            android:layout_marginBottom="-30dp"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF"
+            app:cardElevation="0dp"
+            >
 
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/load"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.3">
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/saveCard"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-                android:background="@color/uwYellow"
-                android:backgroundTint="@color/uwYellow"
-                app:cardCornerRadius="10dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                android:layout_height="match_parent">
 
-
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/load"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                    >
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/saveCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
-                        android:layout_marginBottom="40dp"
-                        android:hint="Enter or select from your save data"
-                        app:boxBackgroundColor="@color/uwYellow"
-                        app:boxStrokeColor="#000000"
-                        app:hintTextColor="#000000">
+                        android:layout_marginEnd="10dp"
+                        android:background="@color/uwYellow"
+                        android:backgroundTint="@color/uwYellow"
+                        app:cardCornerRadius="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                        <AutoCompleteTextView
-                            android:id="@+id/save_dropdown"
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="14sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            android:orientation="vertical">
 
-                </LinearLayout>
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="40dp"
+                                android:hint="Enter or select from your save data"
+                                app:boxBackgroundColor="@color/uwYellow"
+                                app:boxStrokeColor="#000000"
+                                app:hintTextColor="#000000">
 
-            </androidx.cardview.widget.CardView>
+                                <AutoCompleteTextView
+                                    android:id="@+id/save_dropdown"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp" />
+                            </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:elevation="10dp"
-                android:fontFamily="@font/droid_sans"
-                android:text="CONTINUE"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                        </LinearLayout>
 
-            </TextView>
+                    </androidx.cardview.widget.CardView>
 
-            <Button
-                android:id="@+id/loadSubmit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/roundbtn"
-                android:text="Load"
-                android:textColor="@color/uwYellow"
-                android:translationY="-20dp"
-                app:cornerRadius="10dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/saveCard" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:elevation="10dp"
+                        android:fontFamily="@font/droid_sans"
+                        android:text="CONTINUE"
+                        android:textColor="#000000"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </TextView>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/create"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/load">
+                    <Button
+                        android:id="@+id/loadSubmit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/roundbtn"
+                        android:text="Load"
+                        android:textColor="@color/uwYellow"
+                        android:translationY="-20dp"
+                        app:cornerRadius="10dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/saveCard" />
 
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/createCard"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-
-                android:background="@color/uwYellow"
-                app:cardCornerRadius="10dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/create"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/uwYellow"
-                    android:orientation="vertical">
+                    android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
+                    >
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/createCard"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
+                        android:layout_marginStart="10dp"
                         android:layout_marginTop="20dp"
-                        android:hint="Enter or select your faculty"
-                        app:boxBackgroundColor="@color/uwYellow"
-                        app:boxStrokeColor="#000000"
-                        app:hintTextColor="#000000">
+                        android:layout_marginEnd="10dp"
 
-                        <AutoCompleteTextView
-                            android:id="@+id/faculty_dropdown"
+                        android:background="@color/uwYellow"
+                        app:cardCornerRadius="10dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:background="@color/uwYellow"
+                            android:orientation="vertical">
 
-                            android:textSize="14sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_marginTop="20dp"
+                                android:hint="Enter or select your faculty"
+                                app:boxBackgroundColor="@color/uwYellow"
+                                app:boxStrokeColor="#000000"
+                                app:hintTextColor="#000000">
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                        android:layout_width="match_parent"
+                                <AutoCompleteTextView
+                                    android:id="@+id/faculty_dropdown"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:textSize="14sp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_marginTop="20dp"
+                                android:hint="Enter or select your program"
+                                app:boxBackgroundColor="@color/uwYellow"
+                                app:boxStrokeColor="#000000"
+                                app:hintTextColor="#000000">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/program_dropdown"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:textSize="14sp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginHorizontal="20dp"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="40dp"
+                                android:hint="Enter or select your option (if applicable)"
+                                app:boxBackgroundColor="@color/uwYellow"
+                                app:boxStrokeColor="#000000"
+                                app:hintTextColor="#000000">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/option_dropdown"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:textSize="14sp" />
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginTop="20dp"
-                        android:hint="Enter or select your program"
-                        app:boxBackgroundColor="@color/uwYellow"
-                        app:boxStrokeColor="#000000"
-                        app:hintTextColor="#000000">
+                        android:layout_marginLeft="25dp"
+                        android:elevation="5dp"
+                        android:fontFamily="@font/droid_sans"
+                        android:text="CREATE NEW"
+                        android:textColor="#000000"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                        <AutoCompleteTextView
-                            android:id="@+id/program_dropdown"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                    </TextView>
 
-                            android:textSize="14sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
-
-                    <com.google.android.material.textfield.TextInputLayout
-                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-                        android:layout_width="match_parent"
+                    <Button
+                        android:id="@+id/createSubmit"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginHorizontal="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginBottom="40dp"
-                        android:hint="Enter or select your option (if applicable)"
-                        app:boxBackgroundColor="@color/uwYellow"
-                        app:boxStrokeColor="#000000"
-                        app:hintTextColor="#000000">
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/roundbtn"
+                        app:cornerRadius="10dp"
+                        android:textColor="@color/uwYellow"
+                        android:translationY="-20dp"
+                        android:text="CREATE"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/createCard" />
 
-                        <AutoCompleteTextView
-                            android:id="@+id/option_dropdown"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </LinearLayout>
 
-                            android:textSize="14sp" />
-                    </com.google.android.material.textfield.TextInputLayout>
 
-                </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-            </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:elevation="5dp"
-                android:fontFamily="@font/droid_sans"
-                android:text="CREATE NEW"
-                android:textColor="#000000"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-            </TextView>
-
-            <Button
-                android:id="@+id/createSubmit"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/roundbtn"
-                app:cornerRadius="10dp"
-                android:textColor="@color/uwYellow"
-                android:translationY="-20dp"
-                android:text="CREATE"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/createCard" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
