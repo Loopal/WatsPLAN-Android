@@ -114,7 +114,73 @@ class ChecklistActivity : AppCompatActivity() {
         cardRecycler.adapter = newAdapter
     }
 
+    override fun onBackPressed() {
+        val mDialogView = LayoutInflater.from(this).inflate(R.layout.edittext_dialog, null)
+        val mAlertDialog = AlertDialog.Builder(this).setView(mDialogView).show()
+        if (model.fileName == "") {
+            mDialogView.dialogTextField.visibility = View.VISIBLE
+            mDialogView.dialog_desc.text = "Create a new save file"
+        } else {
+            mDialogView.dialogTextField.visibility = View.GONE
+            mDialogView.dialog_desc.text = "Overwrite save file ${model.fileName}?"
+        }
 
+        mAlertDialog.edit_dialog_cancel.setOnClickListener {
+            mAlertDialog.dismiss()
+            finish()
+        }
+
+        mAlertDialog.edit_dialog_confirm.setOnClickListener {
+            var curText = model.fileName
+            if (curText == "") {
+                curText = mAlertDialog.dialogEditText.text.toString()
+            }
+            if (curText != "") {
+                try {
+                    val f = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save")
+                    f.createNewFile()
+                    f.printWriter().use {
+                        it.println(model.facultyName)
+                        it.println(model.majorName)
+                        for (c in model.storedCards) {
+                            var temp = ""
+                            temp += c.text + "?"
+                            temp += c.done.toString() + "?"
+                            temp += c.checkedBoxes.joinToString(separator = ";") + "?"
+                            temp += c.num.toString() + "?"
+                            temp += c.progress.toString() + "?"
+                            temp += c.items.joinToString(separator = ";") + "?"
+                            temp += c.comment
+                            it.println(temp)
+                        }
+                    }
+                    mAlertDialog.dismiss()
+                    Snackbar.make(selectAll,"Save file created/updated successfully",
+                        Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
+                } catch(e : Exception){
+                    Snackbar.make(mDialogView,"Unable to create/update save file",
+                        Snackbar.LENGTH_SHORT)
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
+                }
+
+                val l = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save").readLines()
+                for (ll in l) {
+                    Log.d("asd",ll)
+                }
+            } else {
+                Snackbar.make(mDialogView,"Invalid save name",
+                    Snackbar.LENGTH_SHORT)
+                    .setBackgroundTint(Color.BLACK)
+                    .setTextColor(Color.parseColor("#FFD54F"))
+                    .show()
+            }
+        }
+    }
     private fun updateCards() {
 
         for (item in major.Requirements!!) {
@@ -149,8 +215,6 @@ class ChecklistActivity : AppCompatActivity() {
 
     fun saveChecklist(v : View) {
         closefab()
-        val input = EditText(this)
-        input.inputType = InputType.TYPE_CLASS_TEXT
 
         val mDialogView = LayoutInflater.from(this).inflate(R.layout.edittext_dialog, null)
         val mAlertDialog = AlertDialog.Builder(this).setView(mDialogView).show()
