@@ -9,32 +9,18 @@
     tools:context=".RegisterActivity">
 
     <ImageView
+        android:scaleX="1.5"
+        android:scaleY="1.5"
         android:id="@+id/registerLogo"
-        android:layout_width="415dp"
-        android:layout_height="165dp"
-        android:scrollbarSize="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.050000012"
-        app:srcCompat="@drawable/uw_full_logo_hori" />
-
-    <TextView
-        android:id="@+id/registerTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/droid_sans"
-        android:text="Create a New Account"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_height="200dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:srcCompat="@drawable/logo" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:theme="@style/Theme.MaterialComponents.Light.NoActionBar"
         android:id="@+id/registerConstraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -42,7 +28,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerTitle"
+        app:layout_constraintTop_toBottomOf="@+id/registerLogo"
         app:layout_constraintVertical_bias="0.1">
 
         <androidx.cardview.widget.CardView
@@ -68,6 +54,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginHorizontal="20dp"
                     android:hint="Full Name"
+                    app:hintTextColor="#000000"
                     app:boxBackgroundColor="@color/uwYellow"
                     app:boxStrokeColor="#000000"
                     app:boxStrokeWidth="1dp">
@@ -87,6 +74,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginHorizontal="20dp"
                     android:hint="Email"
+                    app:hintTextColor="#000000"
                     app:boxBackgroundColor="@color/uwYellow"
                     app:boxStrokeColor="#000000"
                     app:boxStrokeWidth="1dp">
@@ -107,6 +95,7 @@
                     android:layout_marginTop="20dp"
                     android:layout_marginHorizontal="20dp"
                     android:hint="Password"
+                    app:hintTextColor="#000000"
                     app:boxBackgroundColor="@color/uwYellow"
                     app:boxStrokeColor="#000000"
                     app:boxStrokeWidth="1dp">
@@ -127,6 +116,7 @@
                     android:layout_marginBottom="40dp"
                     android:layout_marginHorizontal="20dp"
                     android:hint="Confirm Password"
+                    app:hintTextColor="#000000"
                     app:boxBackgroundColor="@color/uwYellow"
                     app:boxStrokeColor="#000000"
                     app:boxStrokeWidth="1dp">
@@ -160,7 +150,7 @@
 
         <Button
             android:id="@+id/registerButton"
-            android:layout_width="wrap_content"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:background="@drawable/roundbtn"
             android:text="@string/fui_title_register_email"
