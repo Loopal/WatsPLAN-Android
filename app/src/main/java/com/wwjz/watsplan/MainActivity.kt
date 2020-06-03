@@ -48,6 +48,8 @@ class MainActivity : AppCompatActivity() {
     val saves = listOf<String>()
     var handler = Handler()
 
+    val fAuth = FirebaseAuth.getInstance()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -267,6 +269,21 @@ class MainActivity : AppCompatActivity() {
 
 
         loadSubmit.setOnClickListener {
+
+            // for test
+            val uid = fAuth.currentUser?.uid
+            val documentReference = db.collection("/cards/").document("save")
+            println("Here")
+            documentReference?.get()?.addOnSuccessListener { documentSnapshot ->
+                println("doc data")
+                println(documentSnapshot.data)
+                val tempMajor = documentSnapshot.toObject(Major::class.java)!!
+                println("In dRef")
+                if (tempMajor != null) {
+                    println("tempMajor is null")
+                    println(tempMajor.Requirements)
+                }
+            }
             if (saves.contains(save_dropdown.text.toString())) {
                 val intent = Intent()
                 intent.putExtra("Save", save_dropdown.text.toString())
@@ -282,13 +299,23 @@ class MainActivity : AppCompatActivity() {
         }
 
         createSubmit.setOnClickListener {
+
+            //for test
+            val major = hashMapOf(
+                "Requirements" to listOf<String>("1","2","3")
+            )
+            db.collection("/cards/").document("save")
+                .set(major)
+                .addOnSuccessListener { Log.d("write card", "Cards success") }
+                .addOnFailureListener { Log.w("fail card", "Error Card") }
+
             if (programs.contains(program_dropdown.text.toString())) {
                 val intent = Intent()
                 intent.putExtra("Faculty", faculty_dropdown.text.toString())
                 intent.putExtra("Major", program_dropdown.text.toString())
                 intent.setClass(this, ChecklistActivity::class.java)
                 if(options.contains(option_dropdown.text.toString())){
-                    if(option_dropdown.text.toString() != "Just click CREATE button if no option"){
+                    if(option_dropdown.text.toString() != "!Just click CREATE button if no option"){
                         intent.putExtra("Option", option_dropdown.text.toString())
                         startActivity(intent)
                     }
