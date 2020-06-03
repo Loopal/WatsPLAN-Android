@@ -101,4 +101,16 @@
         app:layout_constrainedHeight="true"
         />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/saveButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/save_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="saveChecklist"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
