@@ -330,14 +330,14 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("Major", program_dropdown.text.toString())
                 intent.setClass(this, ChecklistActivity::class.java)
                 if(options.contains(option_dropdown.text.toString())){
-                    if(option_dropdown.text.toString() != "Just click CREATE button if no option"){
+                    if(option_dropdown.text.toString() != "!Just click CREATE button if no option"){
                         intent.putExtra("Option", option_dropdown.text.toString())
                         startActivity(intent)
                     }
                     else
                         startActivity(intent)
                 }
-                else if(option_dropdown.text.toString() == "")
+                else if(option_dropdown.text.toString() == "" && options.size == 0)
                     startActivity(intent)
                 else{
                     Snackbar.make(createSubmit,"Invalid faculty/program/option, please try again.",

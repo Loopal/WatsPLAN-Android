@@ -43,6 +43,7 @@ class ChecklistActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_checklist)
 
         //fabs
@@ -54,6 +55,8 @@ class ChecklistActivity : AppCompatActivity() {
             }
         }
 
+        // Reset for backpress
+        model.changed = false
         model.facultyName = ""
         model.majorName = ""
         model.fileName = ""
@@ -296,6 +299,8 @@ class ChecklistActivity : AppCompatActivity() {
                     }
 
                     mAlertDialog.dismiss()
+
+                    // Reset for backpress
                     model.changed = false
                     Snackbar.make(selectAll,"Save file created/updated successfully",
                         Snackbar.LENGTH_LONG)
