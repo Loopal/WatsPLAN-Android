@@ -358,6 +358,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        save_dropdown.text.clear()
         loadSaves()
     }
 
@@ -399,6 +400,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun loadSaves() {
+        saves.clear()
         //Get local saves
         val l = this.getDir("saves", Context.MODE_PRIVATE)
             .walk()
