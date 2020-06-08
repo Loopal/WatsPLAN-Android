@@ -369,7 +369,7 @@ class ChecklistActivity : AppCompatActivity() {
         model.majorName = lines[1]
         setlogo(lines[0])
         majorName.text = lines[1]
-        for(i in 2 until lines.size -1) {
+        for(i in 2 until lines.size) {
             val temp = lines[i].split("?").toList()
             val curCard = Card(temp[0], temp[1].toBoolean(),temp[3].toInt(), temp[5].split(";").toList())
             curCard.progress = temp[4].toInt()
