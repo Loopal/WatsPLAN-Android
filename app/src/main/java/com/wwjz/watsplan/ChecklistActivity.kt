@@ -144,6 +144,7 @@ class ChecklistActivity : AppCompatActivity() {
             }
 
             mAlertDialog.edit_dialog_confirm.setOnClickListener {
+                val thisView = it
                 var curText = model.fileName
                 if (curText == "") {
                     curText = mAlertDialog.dialogEditText.text.toString()
@@ -167,6 +168,35 @@ class ChecklistActivity : AppCompatActivity() {
                                 it.println(temp)
                             }
                         }
+
+                        // Current user
+                        val currentUser = fAuth.currentUser
+
+                        if(currentUser != null){
+                            // Store the user data on Cloud if authenticated
+                            val storageRef = storage.reference
+                            val file = Uri.fromFile(f)
+                            val userFileRef = storageRef.child("userData/${currentUser?.uid}/${file.lastPathSegment}")
+
+                            var uploadTask = userFileRef.putFile(file)
+
+                            uploadTask
+                                .addOnFailureListener{
+                                    Snackbar.make(thisView,"Upload Fail",
+                                        Snackbar.LENGTH_LONG)
+                                        .setBackgroundTint(Color.BLACK)
+                                        .setTextColor(Color.parseColor("#FFD54F"))
+                                        .show()
+                                }
+                                .addOnSuccessListener {
+                                    Snackbar.make(thisView,"Upload Success",
+                                        Snackbar.LENGTH_LONG)
+                                        .setBackgroundTint(Color.BLACK)
+                                        .setTextColor(Color.parseColor("#FFD54F"))
+                                        .show()
+                                }
+                        }
+
                         mAlertDialog.dismiss()
                         finish()
                     } catch(e : Exception){
