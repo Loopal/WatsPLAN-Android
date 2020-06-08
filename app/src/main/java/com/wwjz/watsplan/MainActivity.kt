@@ -337,7 +337,7 @@ class MainActivity : AppCompatActivity() {
                     else
                         startActivity(intent)
                 }
-                else if(option_dropdown.text.toString() == "" && options.size == 0)
+                else if(option_dropdown.text.toString() == "" && (options.size == 0 || options.contains("!Just click CREATE button if no option")))
                     startActivity(intent)
                 else{
                     Snackbar.make(createSubmit,"Invalid faculty/program/option, please try again.",
