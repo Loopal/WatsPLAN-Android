@@ -122,71 +122,74 @@ class ChecklistActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        val mDialogView = LayoutInflater.from(this).inflate(R.layout.edittext_dialog, null)
-        val mAlertDialog = AlertDialog.Builder(this).setView(mDialogView).show()
-        if (model.fileName == "") {
-            mDialogView.dialogTextField.visibility = View.VISIBLE
-            mDialogView.dialog_desc.text = "Create a new save file"
-        } else {
-            mDialogView.dialogTextField.visibility = View.GONE
-            mDialogView.dialog_desc.text = "Overwrite save file ${model.fileName}?"
-        }
 
-        mAlertDialog.edit_dialog_cancel.setOnClickListener {
-            mAlertDialog.dismiss()
-            finish()
-        }
-
-        mAlertDialog.edit_dialog_confirm.setOnClickListener {
-            var curText = model.fileName
-            if (curText == "") {
-                curText = mAlertDialog.dialogEditText.text.toString()
+        if(model.changed){
+            val mDialogView = LayoutInflater.from(this).inflate(R.layout.edittext_dialog, null)
+            val mAlertDialog = AlertDialog.Builder(this).setView(mDialogView).show()
+            if (model.fileName == "") {
+                mDialogView.dialogTextField.visibility = View.VISIBLE
+                mDialogView.dialog_desc.text = "Create a new save file"
+            } else {
+                mDialogView.dialogTextField.visibility = View.GONE
+                mDialogView.dialog_desc.text = "Overwrite save file ${model.fileName}?"
             }
-            if (curText != "") {
-                try {
-                    val f = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save")
-                    f.createNewFile()
-                    f.printWriter().use {
-                        it.println(model.facultyName)
-                        it.println(model.majorName)
-                        for (c in model.storedCards) {
-                            var temp = ""
-                            temp += c.text + "?"
-                            temp += c.done.toString() + "?"
-                            temp += c.checkedBoxes.joinToString(separator = ";") + "?"
-                            temp += c.num.toString() + "?"
-                            temp += c.progress.toString() + "?"
-                            temp += c.items.joinToString(separator = ";") + "?"
-                            temp += c.comment
-                            it.println(temp)
+
+            mAlertDialog.edit_dialog_cancel.setOnClickListener {
+                mAlertDialog.dismiss()
+                finish()
+            }
+
+            mAlertDialog.edit_dialog_confirm.setOnClickListener {
+                var curText = model.fileName
+                if (curText == "") {
+                    curText = mAlertDialog.dialogEditText.text.toString()
+                }
+                if (curText != "") {
+                    try {
+                        val f = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save")
+                        f.createNewFile()
+                        f.printWriter().use {
+                            it.println(model.facultyName)
+                            it.println(model.majorName)
+                            for (c in model.storedCards) {
+                                var temp = ""
+                                temp += c.text + "?"
+                                temp += c.done.toString() + "?"
+                                temp += c.checkedBoxes.joinToString(separator = ";") + "?"
+                                temp += c.num.toString() + "?"
+                                temp += c.progress.toString() + "?"
+                                temp += c.items.joinToString(separator = ";") + "?"
+                                temp += c.comment
+                                it.println(temp)
+                            }
                         }
+                        mAlertDialog.dismiss()
+                        finish()
+                    } catch(e : Exception){
+                        Snackbar.make(mDialogView,"Unable to create/update save file",
+                            Snackbar.LENGTH_SHORT)
+                            .setBackgroundTint(Color.BLACK)
+                            .setTextColor(Color.parseColor("#FFD54F"))
+                            .show()
                     }
-                    mAlertDialog.dismiss()
-                    Snackbar.make(selectAll,"Save file created/updated successfully",
-                        Snackbar.LENGTH_LONG)
-                        .setBackgroundTint(Color.BLACK)
-                        .setTextColor(Color.parseColor("#FFD54F"))
-                        .show()
-                } catch(e : Exception){
-                    Snackbar.make(mDialogView,"Unable to create/update save file",
+
+                    val l = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save").readLines()
+                    for (ll in l) {
+                        Log.d("asd",ll)
+                    }
+                } else {
+                    Snackbar.make(mDialogView,"Invalid save name",
                         Snackbar.LENGTH_SHORT)
                         .setBackgroundTint(Color.BLACK)
                         .setTextColor(Color.parseColor("#FFD54F"))
                         .show()
                 }
-
-                val l = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save").readLines()
-                for (ll in l) {
-                    Log.d("asd",ll)
-                }
-            } else {
-                Snackbar.make(mDialogView,"Invalid save name",
-                    Snackbar.LENGTH_SHORT)
-                    .setBackgroundTint(Color.BLACK)
-                    .setTextColor(Color.parseColor("#FFD54F"))
-                    .show()
             }
         }
+        else{
+            finish()
+        }
+
     }
     private fun updateCards() {
 
@@ -266,28 +269,30 @@ class ChecklistActivity : AppCompatActivity() {
                     // Current user
                     val currentUser = fAuth.currentUser
 
-                    // Store the user data on Cloud if authenticated
-                    val storageRef = storage.reference
-                    val file = Uri.fromFile(f)
-                    val userFileRef = storageRef.child("userData/${currentUser?.uid}/${file.lastPathSegment}")
+                    if(currentUser != null){
+                        // Store the user data on Cloud if authenticated
+                        val storageRef = storage.reference
+                        val file = Uri.fromFile(f)
+                        val userFileRef = storageRef.child("userData/${currentUser?.uid}/${file.lastPathSegment}")
 
-                    var uploadTask = userFileRef.putFile(file)
+                        var uploadTask = userFileRef.putFile(file)
 
-                    uploadTask
-                        .addOnFailureListener{
-                            Snackbar.make(thisView,"Upload Fail",
-                                Snackbar.LENGTH_LONG)
-                                .setBackgroundTint(Color.BLACK)
-                                .setTextColor(Color.parseColor("#FFD54F"))
-                                .show()
-                        }
-                        .addOnSuccessListener {
-                            Snackbar.make(thisView,"Upload Success",
-                                Snackbar.LENGTH_LONG)
-                                .setBackgroundTint(Color.BLACK)
-                                .setTextColor(Color.parseColor("#FFD54F"))
-                                .show()
-                        }
+                        uploadTask
+                            .addOnFailureListener{
+                                Snackbar.make(thisView,"Upload Fail",
+                                    Snackbar.LENGTH_LONG)
+                                    .setBackgroundTint(Color.BLACK)
+                                    .setTextColor(Color.parseColor("#FFD54F"))
+                                    .show()
+                            }
+                            .addOnSuccessListener {
+                                Snackbar.make(thisView,"Upload Success",
+                                    Snackbar.LENGTH_LONG)
+                                    .setBackgroundTint(Color.BLACK)
+                                    .setTextColor(Color.parseColor("#FFD54F"))
+                                    .show()
+                            }
+                    }
 
                     mAlertDialog.dismiss()
                     Snackbar.make(selectAll,"Save file created/updated successfully",
@@ -354,14 +359,49 @@ class ChecklistActivity : AppCompatActivity() {
         }
 
         mAlertDialog.delete_dialog_confirm.setOnClickListener {
+            val thisView = it
+
             if (model.fileName == "") {
                 finish()
             } else {
                 try {
-                    File(
+                    val f = File(
                         this.getDir("saves", Context.MODE_PRIVATE),
                         "${model.fileName}.save"
-                    ).delete()
+                    )
+
+                    // Current user
+                    val currentUser = fAuth.currentUser
+
+                    if(currentUser != null){
+                        // Store the user data on Cloud if authenticated
+                        val storageRef = storage.reference
+                        val file = Uri.fromFile(f)
+                        val userFileRef = storageRef.child("userData/${currentUser?.uid}/${file.lastPathSegment}")
+
+                        // Delete file locally
+                        f.delete()
+
+
+                        var deleteTask = userFileRef.delete()
+
+                        deleteTask
+                            .addOnFailureListener{
+                                Snackbar.make(thisView,"Delete Fail",
+                                    Snackbar.LENGTH_LONG)
+                                    .setBackgroundTint(Color.BLACK)
+                                    .setTextColor(Color.parseColor("#FFD54F"))
+                                    .show()
+                            }
+                            .addOnSuccessListener {
+                                Snackbar.make(thisView,"Delete Success",
+                                    Snackbar.LENGTH_LONG)
+                                    .setBackgroundTint(Color.BLACK)
+                                    .setTextColor(Color.parseColor("#FFD54F"))
+                                    .show()
+                            }
+                    }
+                    mAlertDialog.dismiss()
                     finish()
                 } catch (e: Exception) {
                     Snackbar.make(
