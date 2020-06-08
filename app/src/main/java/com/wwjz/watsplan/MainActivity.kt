@@ -92,21 +92,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
-
-
-        //Get local saves
-        val l = this.getDir("saves", Context.MODE_PRIVATE)
-            .walk()
-            .filter { it.extension == "save" }
-            .forEach { saves.add(it.nameWithoutExtension) }
-
-        val sadapter = ArrayAdapter<String>(
-            this,
-            R.layout.dropdown_menu_popup_item,
-            saves
-        )
-
-        save_dropdown.setAdapter(sadapter)
+        loadSaves()
 
         //Get DB
         val db = FirebaseFirestore.getInstance()
@@ -370,6 +356,11 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        loadSaves()
+    }
+
     // Hide the softKeyboard when change focus
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         if(currentFocus != null){
@@ -405,6 +396,22 @@ class MainActivity : AppCompatActivity() {
 
     fun onNavButtonClick(v: View) {
         drawer_layout.openDrawer(Gravity.LEFT)
+    }
+
+    fun loadSaves() {
+        //Get local saves
+        val l = this.getDir("saves", Context.MODE_PRIVATE)
+            .walk()
+            .filter { it.extension == "save" }
+            .forEach { saves.add(it.nameWithoutExtension) }
+
+        val sadapter = ArrayAdapter<String>(
+            this,
+            R.layout.dropdown_menu_popup_item,
+            saves
+        )
+
+        save_dropdown.setAdapter(sadapter)
     }
 
 }
