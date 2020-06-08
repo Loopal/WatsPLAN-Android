@@ -59,6 +59,7 @@ class ChecklistActivity : AppCompatActivity() {
         model.fileName = ""
         model.cards.clear()
         model.storedCards.clear()
+        model.changed = false
 
         //get intent
         val s = intent.getStringExtra("Save")
@@ -295,6 +296,7 @@ class ChecklistActivity : AppCompatActivity() {
                     }
 
                     mAlertDialog.dismiss()
+                    model.changed = false
                     Snackbar.make(selectAll,"Save file created/updated successfully",
                         Snackbar.LENGTH_LONG)
                         .setBackgroundTint(Color.BLACK)
