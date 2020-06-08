@@ -3,6 +3,7 @@ package com.wwjz.watsplan
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.text.InputType
@@ -16,7 +17,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.children
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_checklist.*
 import kotlinx.android.synthetic.main.delete_dialog.*
 import kotlinx.android.synthetic.main.edittext_dialog.*
@@ -33,6 +36,10 @@ class ChecklistActivity : AppCompatActivity() {
     var newAdapter = cardRecyclerAdapter(this)
     var facultyName = ""
     var fabExpand = false
+    // Create the Cloud Storage for user data
+    val storage = FirebaseStorage.getInstance()
+    // User Auth
+    val fAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -231,6 +238,7 @@ class ChecklistActivity : AppCompatActivity() {
         }
 
         mAlertDialog.edit_dialog_confirm.setOnClickListener {
+            val thisView = it
             var curText = model.fileName
             if (curText == "") {
                 curText = mAlertDialog.dialogEditText.text.toString()
@@ -254,6 +262,33 @@ class ChecklistActivity : AppCompatActivity() {
                             it.println(temp)
                         }
                     }
+
+                    // Current user
+                    val currentUser = fAuth.currentUser
+
+                    // Store the user data on Cloud if authenticated
+                    val storageRef = storage.reference
+                    val file = Uri.fromFile(f)
+                    val userFileRef = storageRef.child("userData/${currentUser?.uid}/${file.lastPathSegment}")
+
+                    var uploadTask = userFileRef.putFile(file)
+
+                    uploadTask
+                        .addOnFailureListener{
+                            Snackbar.make(thisView,"Upload Fail",
+                                Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(Color.BLACK)
+                                .setTextColor(Color.parseColor("#FFD54F"))
+                                .show()
+                        }
+                        .addOnSuccessListener {
+                            Snackbar.make(thisView,"Upload Success",
+                                Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(Color.BLACK)
+                                .setTextColor(Color.parseColor("#FFD54F"))
+                                .show()
+                        }
+
                     mAlertDialog.dismiss()
                     Snackbar.make(selectAll,"Save file created/updated successfully",
                         Snackbar.LENGTH_LONG)

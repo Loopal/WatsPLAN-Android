@@ -37,6 +37,7 @@ import com.firebase.ui.auth.IdpResponse
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_control.*
 import kotlinx.android.synthetic.main.activity_register.*
 import java.io.File
@@ -49,10 +50,49 @@ class MainActivity : AppCompatActivity() {
     val options = mutableListOf<String>()
     val saves = mutableListOf<String>()
     var handler = Handler()
+    // Create the Cloud Storage for user data
+    val storage = FirebaseStorage.getInstance()
+    // User Auth
+    val fAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // Current user
+        val currentUser = fAuth.currentUser
+
+        if(currentUser != null){
+            // Load the user data from cloud
+            val storageRef = storage.getReference("userData/${currentUser.uid}")
+            val fileRefList = storageRef.listAll().addOnSuccessListener {
+                it.items.forEach {
+                    val ONE_MEGABYTE: Long = 1024 * 1024
+                    /*it.getBytes(ONE_MEGABYTE).addOnSuccessListener {
+                        val f = File(this.getDir("saves", Context.MODE_PRIVATE), "$it.save")
+                    }.addOnFailureListener {
+                        // Handle any errors
+                    }
+                    */
+                    val localFile = File(this.getDir("saves", Context.MODE_PRIVATE), "${it.name}")
+                    it.getFile(localFile)
+                        .addOnFailureListener{
+                            Snackbar.make(loadSubmit,"Download Fail",
+                                Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(Color.BLACK)
+                                .setTextColor(Color.parseColor("#FFD54F"))
+                                .show()
+                        }
+                        .addOnSuccessListener{
+                            Snackbar.make(loadSubmit,"Download Success",
+                                Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(Color.BLACK)
+                                .setTextColor(Color.parseColor("#FFD54F"))
+                                .show()
+                        }
+                }
+            }
+        }
+
 
         //Get local saves
         val l = this.getDir("saves", Context.MODE_PRIVATE)
@@ -205,7 +245,7 @@ class MainActivity : AppCompatActivity() {
                             .build(),
                         1)
                     true*/
-                    val fAuth = FirebaseAuth.getInstance()
+
                     if(fAuth.currentUser != null){
                         Snackbar.make(createSubmit,"Current Login with " + fAuth.currentUser!!.displayName.toString(),
                             Snackbar.LENGTH_LONG)
