@@ -7,6 +7,7 @@ class Model {
     var fileName = ""
     var storedCards: MutableList<Card> = mutableListOf<Card>()
     var cards: MutableList<Card> = mutableListOf<Card>()
+    var changed = false;
 
     companion object {
         val mInstance = Model()
