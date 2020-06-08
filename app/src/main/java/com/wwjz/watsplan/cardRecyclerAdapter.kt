@@ -75,6 +75,7 @@ class cardRecyclerAdapter(context : Context) : RecyclerView.Adapter<cardViewHold
 
             holder.cardComment!!.setOnFocusChangeListener { view, hasFocus ->
                 if (!hasFocus) {
+                    model.changed = true;
                     model.cards[position].comment = holder.cardComment!!.text.toString()
                 }
             }
@@ -133,6 +134,7 @@ class CheckBoxAdapter(pos:Int, context:Context, a: cardRecyclerAdapter) : Recycl
 
         holder.cbox!!.setOnClickListener {
             var curBox = it as CheckBox
+            model.changed = true;
             if (curBox.isChecked) {
                 model.cards[p].checkedBoxes.add(position)
                 if (model.cards[p].checkedBoxes.size > model.cards[p].num) {

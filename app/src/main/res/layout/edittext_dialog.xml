@@ -82,7 +82,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginEnd="20dp"
             android:background="@drawable/roundbtn"
-            android:text="Confirm"
+            android:text="Yes"
             android:textColor="@color/uwYellow"
             />
 
@@ -96,7 +96,7 @@
             android:layout_marginBottom="10dp"
             android:layout_marginRight="40dp"
             android:background="@drawable/roundbtn"
-            android:text="Cancel"
+            android:text="No"
             android:textColor="@color/uwYellow"
             />
 
