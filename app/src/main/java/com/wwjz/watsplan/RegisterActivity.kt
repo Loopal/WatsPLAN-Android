@@ -3,6 +3,7 @@ package com.wwjz.watsplan
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -14,20 +15,25 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.DatabaseReference
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_register.*
+import java.io.File
 
 class RegisterActivity : AppCompatActivity() {
 
     var handler = Handler()
 
+    // Create the Cloud Storage for user data
+    val storage = FirebaseStorage.getInstance()
+    // User Auth
+    val fAuth = FirebaseAuth.getInstance()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-
-        val fAuth = FirebaseAuth.getInstance()
 
         if(fAuth.currentUser != null){
             handler.postDelayed({
@@ -40,6 +46,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         registerButton.setOnClickListener {
+            val thisView = it
             val name = registerName.text.toString().trim()
             val email = registerEmail.text.toString().trim()
             val password = registerPassword.text.toString().trim()
@@ -96,6 +103,34 @@ class RegisterActivity : AppCompatActivity() {
                                     }, 100)
                                 }
                             }
+
+                        // Store the user data on Cloud if authenticated
+                        val storageRef = storage.reference
+                        val fileList = File(this.getDir("saves", Context.MODE_PRIVATE).toURI()).walkTopDown().forEach {
+                            if(it.name != "app_saves"){
+                                val file = Uri.fromFile(it)
+                                val userFileRef = storageRef.child("userData/${user?.uid}/${file.lastPathSegment}")
+
+                                var uploadTask = userFileRef.putFile(file)
+
+                                uploadTask
+                                    .addOnFailureListener{
+                                        Snackbar.make(thisView, "Upload Fail",
+                                            Snackbar.LENGTH_LONG)
+                                            .setBackgroundTint(Color.BLACK)
+                                            .setTextColor(Color.parseColor("#FFD54F"))
+                                            .show()
+                                    }
+                                    .addOnSuccessListener {
+                                        Snackbar.make(thisView,"Upload Success",
+                                            Snackbar.LENGTH_LONG)
+                                            .setBackgroundTint(Color.BLACK)
+                                            .setTextColor(Color.parseColor("#FFD54F"))
+                                            .show()
+                                    }
+                            }
+                        }
+
                     }
                     else{
                         Snackbar.make(registerButton,"Error " + (it.exception?.message ?:-1),

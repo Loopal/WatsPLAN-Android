@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
+import android.view.Gravity
 import android.view.MenuItem
 import android.view.MotionEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -35,21 +37,62 @@ import com.firebase.ui.auth.IdpResponse
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_control.*
 import kotlinx.android.synthetic.main.activity_register.*
-
+import java.io.File
 
 var permissionDeny = true
 
 class MainActivity : AppCompatActivity() {
     val faculties = mutableListOf<String>()
     val programs = mutableListOf<String>()
-    val saves = listOf<String>()
+    val options = mutableListOf<String>()
+    val saves = mutableListOf<String>()
     var handler = Handler()
+    // Create the Cloud Storage for user data
+    val storage = FirebaseStorage.getInstance()
+    // User Auth
+    val fAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // Current user
+        val currentUser = fAuth.currentUser
+
+        if(currentUser != null){
+            // Load the user data from cloud
+            val storageRef = storage.getReference("userData/${currentUser.uid}")
+            val fileRefList = storageRef.listAll().addOnSuccessListener {
+                it.items.forEach {
+                    val ONE_MEGABYTE: Long = 1024 * 1024
+                    /*it.getBytes(ONE_MEGABYTE).addOnSuccessListener {
+                        val f = File(this.getDir("saves", Context.MODE_PRIVATE), "$it.save")
+                    }.addOnFailureListener {
+                        // Handle any errors
+                    }
+                    */
+                    val localFile = File(this.getDir("saves", Context.MODE_PRIVATE), "${it.name}")
+                    it.getFile(localFile)
+                        .addOnFailureListener{
+                            Snackbar.make(loadSubmit,"Download Fail",
+                                Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(Color.BLACK)
+                                .setTextColor(Color.parseColor("#FFD54F"))
+                                .show()
+                        }
+                        .addOnSuccessListener{
+                            Snackbar.make(loadSubmit,"Download Success",
+                                Snackbar.LENGTH_LONG)
+                                .setBackgroundTint(Color.BLACK)
+                                .setTextColor(Color.parseColor("#FFD54F"))
+                                .show()
+                        }
+                }
+            }
+        }
+        loadSaves()
 
         //Get DB
         val db = FirebaseFirestore.getInstance()
@@ -101,6 +144,32 @@ class MainActivity : AppCompatActivity() {
                 programs
             )
             program_dropdown.setAdapter(padapter)
+        }
+
+        program_dropdown.setOnItemClickListener { parent, view, position, id ->
+            //Query for option (if applicable)
+            option_dropdown.completionHint
+            option_dropdown.setText("")
+            val odoc = db.collection(parent.adapter.getItem(position).toString())
+
+            odoc.get()
+                .addOnSuccessListener { documents ->
+                    options.clear()
+                    for (document in documents) {
+                        options.add(document.id)
+                        Log.d("qq", "${document.id} => ${document.data}")
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.w("qq", "Error getting documents: ", exception)
+                }
+
+            val oadapter = ArrayAdapter<String>(
+                this,
+                R.layout.dropdown_menu_popup_item,
+                options
+            )
+            option_dropdown.setAdapter(oadapter)
         }
         /*
         val docRef = db.collection("/Majors/").document("Bachelor of Computer Science (BCS)")
@@ -162,7 +231,7 @@ class MainActivity : AppCompatActivity() {
                             .build(),
                         1)
                     true*/
-                    val fAuth = FirebaseAuth.getInstance()
+
                     if(fAuth.currentUser != null){
                         Snackbar.make(createSubmit,"Current Login with " + fAuth.currentUser!!.displayName.toString(),
                             Snackbar.LENGTH_LONG)
@@ -260,7 +329,23 @@ class MainActivity : AppCompatActivity() {
                 intent.putExtra("Faculty", faculty_dropdown.text.toString())
                 intent.putExtra("Major", program_dropdown.text.toString())
                 intent.setClass(this, ChecklistActivity::class.java)
-                startActivity(intent)
+                if(options.contains(option_dropdown.text.toString())){
+                    if(option_dropdown.text.toString() != "!Just click CREATE button if no option"){
+                        intent.putExtra("Option", option_dropdown.text.toString())
+                        startActivity(intent)
+                    }
+                    else
+                        startActivity(intent)
+                }
+                else if(option_dropdown.text.toString() == "" && (options.size == 0 || options.contains("!Just click CREATE button if no option")))
+                    startActivity(intent)
+                else{
+                    Snackbar.make(createSubmit,"Invalid faculty/program/option, please try again.",
+                        Snackbar.LENGTH_LONG)
+                        .setBackgroundTint(Color.BLACK)
+                        .setTextColor(Color.parseColor("#FFD54F"))
+                        .show()
+                }
             } else {
                 Snackbar.make(createSubmit,"Invalid faculty/program, please try again.",
                     Snackbar.LENGTH_LONG)
@@ -269,6 +354,12 @@ class MainActivity : AppCompatActivity() {
                     .show()
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        save_dropdown.text.clear()
+        loadSaves()
     }
 
     // Hide the softKeyboard when change focus
@@ -303,5 +394,26 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }*/
+
+    fun onNavButtonClick(v: View) {
+        drawer_layout.openDrawer(Gravity.LEFT)
+    }
+
+    fun loadSaves() {
+        saves.clear()
+        //Get local saves
+        val l = this.getDir("saves", Context.MODE_PRIVATE)
+            .walk()
+            .filter { it.extension == "save" }
+            .forEach { saves.add(it.nameWithoutExtension) }
+
+        val sadapter = ArrayAdapter<String>(
+            this,
+            R.layout.dropdown_menu_popup_item,
+            saves
+        )
+
+        save_dropdown.setAdapter(sadapter)
+    }
 
 }

@@ -34,7 +34,8 @@
             android:layout_below="@id/facultyLogo"
             android:layout_centerHorizontal="true"
             app:layout_constraintTop_toBottomOf="@id/facultyLogo"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginHorizontal="10dp"
             />
     </RelativeLayout>
 
@@ -100,5 +101,51 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constrainedHeight="true"
         />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/deleteButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="deleteChecklist"
+        android:src="@drawable/delete_icon"
+        android:backgroundTint="@color/uwYellow"
+        app:backgroundTint="#FFFFFF"
+        app:borderWidth="3dp"
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/saveButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="saveChecklist"
+        android:src="@drawable/save_icon"
+        android:backgroundTint="@color/uwYellow"
+        app:backgroundTint="#FFFFFF"
+        app:borderWidth="3dp"
+        />
+
+    
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/menuButton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/menu_icon"
+        android:backgroundTint="@color/uwYellow"
+        app:backgroundTint="#FFFFFF"
+        app:borderWidth="3dp"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,12 +5,12 @@ import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.OnFocusChangeListener
 import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.ProgressBar
 import android.widget.TextView
-
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.lang.Integer.min
@@ -44,7 +44,15 @@ class cardRecyclerAdapter(context : Context) : RecyclerView.Adapter<cardViewHold
 
 
     override fun onBindViewHolder(holder: cardViewHolder, position: Int) {
-        holder.cardText!!.text = model.cards[position].text
+        if (model.cards[position].items.size > 3) {
+            if (model.cards[position].num == model.cards[position].items.size) {
+                holder.cardText!!.text = "Select All From " + model.cards[position].text
+            } else {
+                holder.cardText!!.text = "Select " + model.cards[position].text + " From "
+            }
+        } else {
+            holder.cardText!!.text = "Select " + model.cards[position].text
+        }
         val newAdapter = CheckBoxAdapter(position,cxt, this)
         val maxLength = model.cards[position].items.maxBy {it.length}?.length
         var colNum = min(model.cards[position].items.size, 3)
@@ -61,6 +69,16 @@ class cardRecyclerAdapter(context : Context) : RecyclerView.Adapter<cardViewHold
             holder.cardComment!!.visibility = View.GONE
         } else {
             holder.cardComment!!.visibility = View.VISIBLE
+            if (model.cards[position].comment != "") {
+                holder.cardComment!!.setText(model.cards[position].comment)
+            }
+
+            holder.cardComment!!.setOnFocusChangeListener { view, hasFocus ->
+                if (!hasFocus) {
+                    model.changed = true;
+                    model.cards[position].comment = holder.cardComment!!.text.toString()
+                }
+            }
         }
 
         holder.cardProgress!!.progress = model.cards[position].progress
@@ -91,6 +109,7 @@ class cardViewHolder(v: View) : RecyclerView.ViewHolder(v) {
         cardGrid = v.findViewById(R.id.boxGrid)
         cardComment = v.findViewById(R.id.cardComment)
         cardProgress = v.findViewById(R.id.cardProgress)
+
     }
 
 }
@@ -115,6 +134,7 @@ class CheckBoxAdapter(pos:Int, context:Context, a: cardRecyclerAdapter) : Recycl
 
         holder.cbox!!.setOnClickListener {
             var curBox = it as CheckBox
+            model.changed = true;
             if (curBox.isChecked) {
                 model.cards[p].checkedBoxes.add(position)
                 if (model.cards[p].checkedBoxes.size > model.cards[p].num) {

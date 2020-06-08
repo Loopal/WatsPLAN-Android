@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/dialog_title"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:fontFamily="@font/droid_sans"
+            android:textStyle="bold"
+            android:textColor="@color/uwYellow"
+            android:textSize="32sp"
+            android:layout_marginStart="20dp"
+            android:layout_marginVertical="10dp"
+            />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:theme="@style/AppTheme.NoActionBar"
+        app:layout_constraintTop_toBottomOf="@id/dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/uwYellow"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:id="@+id/dialog_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="22dp"
+            android:layout_marginVertical="10dp"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            >
+        </TextView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dialogTextField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/dialog_desc"
+            android:hint="Enter save file name"
+            android:textColorHint="#000000"
+            app:hintTextColor="#000000"
+            app:boxStrokeColor="#000000"
+            android:layout_marginHorizontal="20dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:id="@+id/dialogEditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <Button
+            android:id="@+id/edit_dialog_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_desc"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/roundbtn"
+            android:text="Yes"
+            android:textColor="@color/uwYellow"
+            />
+
+        <Button
+            android:id="@+id/edit_dialog_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dialog_desc"
+            android:layout_toLeftOf="@id/edit_dialog_confirm"
+            android:layout_marginTop="80dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/roundbtn"
+            android:text="No"
+            android:textColor="@color/uwYellow"
+            />
+
+    </RelativeLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
