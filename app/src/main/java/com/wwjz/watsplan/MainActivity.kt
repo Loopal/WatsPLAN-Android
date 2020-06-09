@@ -8,10 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.util.Log
-import android.view.Gravity
-import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.View
+import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -60,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         // Current user
         val currentUser = fAuth.currentUser
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
 
         if(currentUser != null){
             // Load the user data from cloud
@@ -359,6 +357,9 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         save_dropdown.text.clear()
+        faculty_dropdown.text.clear()
+        program_dropdown.text.clear()
+        option_dropdown.text.clear()
         loadSaves()
     }
 
