@@ -438,6 +438,9 @@ class ChecklistActivity : AppCompatActivity() {
                                     .show()
                             }
                     }
+                    else{
+                        f.delete()
+                    }
                     mAlertDialog.dismiss()
                     finish()
                 } catch (e: Exception) {
