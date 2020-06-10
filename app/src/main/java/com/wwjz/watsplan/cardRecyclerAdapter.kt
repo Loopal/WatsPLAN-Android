@@ -44,11 +44,11 @@ class cardRecyclerAdapter(context : Context) : RecyclerView.Adapter<cardViewHold
 
 
     override fun onBindViewHolder(holder: cardViewHolder, position: Int) {
-        if (model.cards[position].items.size > 3) {
+        if (model.cards[position].items.size >= 3) {
             if (model.cards[position].num == model.cards[position].items.size) {
                 holder.cardText!!.text = "Select All From " + model.cards[position].text
             } else {
-                holder.cardText!!.text = "Select " + model.cards[position].text + " From "
+                holder.cardText!!.text = "Select " + model.cards[position].num + " From " + model.cards[position].text
             }
         } else {
             holder.cardText!!.text = "Select " + model.cards[position].text
