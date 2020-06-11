@@ -144,6 +144,7 @@ class ChecklistActivity : AppCompatActivity() {
             }
 
             mAlertDialog.edit_dialog_confirm.setOnClickListener {
+                val thisView = it
                 var curText = model.fileName
                 if (curText == "") {
                     curText = mAlertDialog.dialogEditText.text.toString()
@@ -167,6 +168,35 @@ class ChecklistActivity : AppCompatActivity() {
                                 it.println(temp)
                             }
                         }
+
+                        // Current user
+                        val currentUser = fAuth.currentUser
+
+                        if(currentUser != null){
+                            // Store the user data on Cloud if authenticated
+                            val storageRef = storage.reference
+                            val file = Uri.fromFile(f)
+                            val userFileRef = storageRef.child("userData/${currentUser?.uid}/${file.lastPathSegment}")
+
+                            var uploadTask = userFileRef.putFile(file)
+
+                            uploadTask
+                                .addOnFailureListener{
+                                    Snackbar.make(thisView,"Cloud Sync Fail",
+                                        Snackbar.LENGTH_LONG)
+                                        .setBackgroundTint(Color.BLACK)
+                                        .setTextColor(Color.parseColor("#FFD54F"))
+                                        .show()
+                                }
+                                .addOnSuccessListener {
+                                    Snackbar.make(thisView,"Cloud Sync Succeed",
+                                        Snackbar.LENGTH_LONG)
+                                        .setBackgroundTint(Color.BLACK)
+                                        .setTextColor(Color.parseColor("#FFD54F"))
+                                        .show()
+                                }
+                        }
+
                         mAlertDialog.dismiss()
                         finish()
                     } catch(e : Exception){
@@ -283,14 +313,14 @@ class ChecklistActivity : AppCompatActivity() {
 
                         uploadTask
                             .addOnFailureListener{
-                                Snackbar.make(thisView,"Upload Fail",
+                                Snackbar.make(thisView,"Cloud Sync Fail",
                                     Snackbar.LENGTH_LONG)
                                     .setBackgroundTint(Color.BLACK)
                                     .setTextColor(Color.parseColor("#FFD54F"))
                                     .show()
                             }
                             .addOnSuccessListener {
-                                Snackbar.make(thisView,"Upload Success",
+                                Snackbar.make(thisView,"Cloud Sync Succeed",
                                     Snackbar.LENGTH_LONG)
                                     .setBackgroundTint(Color.BLACK)
                                     .setTextColor(Color.parseColor("#FFD54F"))
@@ -339,7 +369,7 @@ class ChecklistActivity : AppCompatActivity() {
         model.majorName = lines[1]
         setlogo(lines[0])
         majorName.text = lines[1]
-        for(i in 2 until lines.size -1) {
+        for(i in 2 until lines.size) {
             val temp = lines[i].split("?").toList()
             val curCard = Card(temp[0], temp[1].toBoolean(),temp[3].toInt(), temp[5].split(";").toList())
             curCard.progress = temp[4].toInt()
@@ -394,19 +424,22 @@ class ChecklistActivity : AppCompatActivity() {
 
                         deleteTask
                             .addOnFailureListener{
-                                Snackbar.make(thisView,"Delete Fail",
+                                Snackbar.make(thisView,"Cloud Sync Fail",
                                     Snackbar.LENGTH_LONG)
                                     .setBackgroundTint(Color.BLACK)
                                     .setTextColor(Color.parseColor("#FFD54F"))
                                     .show()
                             }
                             .addOnSuccessListener {
-                                Snackbar.make(thisView,"Delete Success",
+                                Snackbar.make(thisView,"Cloud Sync Succeed",
                                     Snackbar.LENGTH_LONG)
                                     .setBackgroundTint(Color.BLACK)
                                     .setTextColor(Color.parseColor("#FFD54F"))
                                     .show()
                             }
+                    }
+                    else{
+                        f.delete()
                     }
                     mAlertDialog.dismiss()
                     finish()

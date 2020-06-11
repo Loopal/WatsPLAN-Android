@@ -7,11 +7,10 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.text.Html
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
-import android.view.Gravity
-import android.view.MenuItem
-import android.view.MotionEvent
-import android.view.View
+import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import kotlinx.android.synthetic.main.activity_main.*
@@ -31,6 +30,7 @@ import com.google.firebase.firestore.Source
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.afollestad.materialdialogs.MaterialDialog
 import com.firebase.ui.auth.AuthUI
 import com.firebase.ui.auth.IdpResponse
@@ -40,6 +40,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_control.*
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.android.synthetic.main.delete_dialog.*
+import kotlinx.android.synthetic.main.term_and_condition_dialog.*
 import java.io.File
 
 var permissionDeny = true
@@ -54,12 +56,15 @@ class MainActivity : AppCompatActivity() {
     val storage = FirebaseStorage.getInstance()
     // User Auth
     val fAuth = FirebaseAuth.getInstance()
+    //Get DB
+    val db = FirebaseFirestore.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // Current user
         val currentUser = fAuth.currentUser
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
 
         if(currentUser != null){
             // Load the user data from cloud
@@ -76,14 +81,14 @@ class MainActivity : AppCompatActivity() {
                     val localFile = File(this.getDir("saves", Context.MODE_PRIVATE), "${it.name}")
                     it.getFile(localFile)
                         .addOnFailureListener{
-                            Snackbar.make(loadSubmit,"Download Fail",
+                            Snackbar.make(loadSubmit,"Cloud Sync Fail",
                                 Snackbar.LENGTH_LONG)
                                 .setBackgroundTint(Color.BLACK)
                                 .setTextColor(Color.parseColor("#FFD54F"))
                                 .show()
                         }
                         .addOnSuccessListener{
-                            Snackbar.make(loadSubmit,"Download Success",
+                            Snackbar.make(loadSubmit,"Cloud Sync Succeed",
                                 Snackbar.LENGTH_LONG)
                                 .setBackgroundTint(Color.BLACK)
                                 .setTextColor(Color.parseColor("#FFD54F"))
@@ -94,8 +99,6 @@ class MainActivity : AppCompatActivity() {
         }
         loadSaves()
 
-        //Get DB
-        val db = FirebaseFirestore.getInstance()
         //Query for faculties
         val fdoc = db.collection("/Faculties/")
 
@@ -215,22 +218,6 @@ class MainActivity : AppCompatActivity() {
         navigation.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.nav_login ->{
-                    /*
-                    // Choose authentication providers
-                    val providers = arrayListOf(
-                        AuthUI.IdpConfig.EmailBuilder().build(),
-                        AuthUI.IdpConfig.GoogleBuilder().build())
-
-                    // Create and launch sign-in intent
-                    startActivityForResult(
-                        AuthUI.getInstance()
-                            .createSignInIntentBuilder()
-                            .setAvailableProviders(providers)
-                            .setLogo(R.drawable.logo)
-                            .setTheme(R.style.AppTheme_NoActionBar)
-                            .build(),
-                        1)
-                    true*/
 
                     if(fAuth.currentUser != null){
                         Snackbar.make(createSubmit,"Current Login with " + fAuth.currentUser!!.displayName.toString(),
@@ -293,6 +280,33 @@ class MainActivity : AppCompatActivity() {
                             .setTextColor(Color.parseColor("#FFD54F"))
                             .show()
                     }
+                    true
+                }
+                R.id.nav_term -> {
+                    val mDialogView = LayoutInflater.from(this).inflate(R.layout.term_and_condition_dialog, null)
+
+                    val mAlertDialog = AlertDialog.Builder(this).setView(mDialogView).show()
+
+                    //Query for term and condition
+                    val contentRef = db.collection("Term_and_Condition").document("Content")
+
+                    contentRef.get()
+                        .addOnSuccessListener { document ->
+                            if(document != null){
+                                //println(document.data!!["1"].toString())
+                                //mAlertDialog.term_and_condition.text = document.data!!["1"].toString()
+                                mAlertDialog.term_and_condition.text  = Html.fromHtml(document.data!!["1"].toString())
+                                mAlertDialog.term_and_condition.movementMethod = ScrollingMovementMethod.getInstance()
+                                //println(mAlertDialog.term_and_condition.text)
+                            }
+                        }
+                        .addOnFailureListener { exception ->
+                            Log.w("qq", "Error getting documents: ", exception)
+                        }
+
+                    /*mAlertDialog.term_dialog_back.setOnClickListener {
+                        mAlertDialog.dismiss()
+                    }*/
                     true
                 }
                 else -> {
@@ -359,6 +373,9 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         save_dropdown.text.clear()
+        faculty_dropdown.text.clear()
+        program_dropdown.text.clear()
+        option_dropdown.text.clear()
         loadSaves()
     }
 
