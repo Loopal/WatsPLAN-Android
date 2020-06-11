@@ -7,6 +7,7 @@ import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.text.Html
 import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.*
@@ -293,7 +294,8 @@ class MainActivity : AppCompatActivity() {
                         .addOnSuccessListener { document ->
                             if(document != null){
                                 //println(document.data!!["1"].toString())
-                                mAlertDialog.term_and_condition.text = document.data!!["1"].toString()
+                                //mAlertDialog.term_and_condition.text = document.data!!["1"].toString()
+                                mAlertDialog.term_and_condition.text  = Html.fromHtml(document.data!!["1"].toString())
                                 mAlertDialog.term_and_condition.movementMethod = ScrollingMovementMethod.getInstance()
                                 //println(mAlertDialog.term_and_condition.text)
                             }
