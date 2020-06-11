@@ -29,7 +29,6 @@ class ControlActivity : AppCompatActivity() {
             .document(name.text.toString())
             .set(major)
             .addOnSuccessListener {
-                Log.d("sss", "DocumentSnapshot successfully written!")
                 Snackbar.make(submitButton,"DocumentSnapshot successfully written!",Snackbar.LENGTH_LONG).show()
             }
             .addOnFailureListener { e ->
