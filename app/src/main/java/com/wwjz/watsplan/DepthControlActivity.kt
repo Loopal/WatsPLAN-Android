@@ -34,7 +34,6 @@ class DepthControlActivity : AppCompatActivity() {
             .document("All")
             .set(myDepthRequirement)
             .addOnSuccessListener {
-                Log.d("sss", "Breadth and Depth Requirement successfully written!")
                 Snackbar.make(writeToDepthButton,"Breadth and Depth Requirement successfully written!", Snackbar.LENGTH_LONG).show()
             }
             .addOnFailureListener { e ->

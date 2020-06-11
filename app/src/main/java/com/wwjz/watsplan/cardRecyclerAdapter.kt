@@ -157,7 +157,6 @@ class CheckBoxAdapter(pos:Int, context:Context, a: cardRecyclerAdapter) : Recycl
                 Handler().post(Runnable { parentAdapter.notifyItemChanged(p,"") })
 
             }
-            Log.d("box",model.cards[p].checkedBoxes.size.toString())
         }
     }
 

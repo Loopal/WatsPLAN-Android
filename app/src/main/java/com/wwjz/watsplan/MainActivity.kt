@@ -108,7 +108,6 @@ class MainActivity : AppCompatActivity() {
                 faculties.clear()
                 for (document in documents) {
                     faculties.add(document.id)
-                    Log.d("qq", "${document.id} => ${document.data}")
                 }
             }
             .addOnFailureListener { exception ->
@@ -134,7 +133,6 @@ class MainActivity : AppCompatActivity() {
                     programs.clear()
                     for (document in documents) {
                         programs.add(document.id)
-                        Log.d("qq", "${document.id} => ${document.data}")
                     }
                 }
                 .addOnFailureListener { exception ->
@@ -160,7 +158,6 @@ class MainActivity : AppCompatActivity() {
                     options.clear()
                     for (document in documents) {
                         options.add(document.id)
-                        Log.d("qq", "${document.id} => ${document.data}")
                     }
                 }
                 .addOnFailureListener { exception ->
@@ -174,46 +171,7 @@ class MainActivity : AppCompatActivity() {
             )
             option_dropdown.setAdapter(oadapter)
         }
-        /*
-        val docRef = db.collection("/Majors/").document("Bachelor of Computer Science (BCS)")
 
-        // Source can be CACHE, SERVER, or DEFAULT.
-        val source = Source.CACHE
-
-        // Get the document, forcing the SDK to use the offline cache
-        docRef.get(source).addOnCompleteListener { task ->
-            if (task.isSuccessful) {
-                // Document found in the offline cache
-                val document = task.result
-                Log.d("abc", "Cached document data: ${document?.data}")
-            } else {
-                Log.d("abc", "Cached get failed: ", task.exception)
-            }
-        }
-
-        docRef.get().addOnSuccessListener { documentSnapshot ->
-            val m = documentSnapshot.toObject(Major::class.java)
-            Log.d("ccc", m.toString())
-        }*/
-
-        /*createButton.setOnClickListener{
-
-            val intent = Intent()
-            intent.setClass(this, ControlActivity::class.java)
-            startActivity(intent)
-
-            if (createButton.currentTextColor == Color.BLACK) {
-                createButton.setBackgroundColor(Color.BLACK)
-                createButton.setTextColor(resources.getColor(R.color.uwYellow))
-            } else {
-                createButton.setBackgroundColor(resources.getColor(R.color.uwYellow))
-                createButton.setTextColor(Color.BLACK)
-
-            }
-
-        }*/
-
-        //navigation.inflateMenu(R.menu.drawer_menu)
 
         navigation.setNavigationItemSelectedListener {
             when (it.itemId) {

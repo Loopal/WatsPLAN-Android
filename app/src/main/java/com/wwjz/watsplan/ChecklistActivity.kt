@@ -100,7 +100,6 @@ class ChecklistActivity : AppCompatActivity() {
 
 
         } else {
-            Log.d("error", "empty intent")
         }
 
         //toggle buttons
@@ -139,7 +138,6 @@ class ChecklistActivity : AppCompatActivity() {
             }
 
             mAlertDialog.edit_dialog_cancel.setOnClickListener {
-                mAlertDialog.dismiss()
                 finish()
             }
 
@@ -209,7 +207,6 @@ class ChecklistActivity : AppCompatActivity() {
 
                     val l = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save").readLines()
                     for (ll in l) {
-                        Log.d("asd",ll)
                     }
                 } else {
                     Snackbar.make(mDialogView,"Invalid save name",
@@ -238,7 +235,6 @@ class ChecklistActivity : AppCompatActivity() {
 
     fun toggleFilter(v : View) {
         toggleGroup.check(v.id)
-        Log.d("id", v.id.toString())
         when (v.id) {
             selectAll.id -> newAdapter.applyFilter(0,101)
             selectChecked.id -> newAdapter.applyFilter(100,101)
@@ -346,9 +342,6 @@ class ChecklistActivity : AppCompatActivity() {
                 }
 
                 val l = File(this.getDir("saves", Context.MODE_PRIVATE), "$curText.save").readLines()
-                for (ll in l) {
-                    Log.d("asd",ll)
-                }
             } else {
                 Snackbar.make(mDialogView,"Invalid save name",
                     Snackbar.LENGTH_SHORT)
@@ -364,7 +357,6 @@ class ChecklistActivity : AppCompatActivity() {
         val lines = File(this.getDir("saves", Context.MODE_PRIVATE), "$s.save").readLines()
         model.storedCards.clear()
         model.cards.clear()
-        Log.d("lel", lines.size.toString())
         model.facultyName = lines[0]
         model.majorName = lines[1]
         setlogo(lines[0])
