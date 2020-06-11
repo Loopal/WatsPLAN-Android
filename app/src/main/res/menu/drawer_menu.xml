@@ -29,4 +29,10 @@
             android:title="Log out" />
     </group>
 
+    <group>
+        <item android:id="@+id/nav_term"
+            android:icon="@drawable/term"
+            android:title="Terms and Conditions" />
+    </group>
+
 </menu>

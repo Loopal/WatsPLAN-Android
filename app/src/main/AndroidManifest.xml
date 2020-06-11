@@ -9,12 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".ChecklistActivity" />
-        <activity android:name=".DevControlActivity" />
-        <activity android:name=".DepthControlActivity" />
-        <activity android:name=".ControlActivity" />
+        <activity android:name=".RegisterActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity android:name=".ChecklistActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity android:name=".DevControlActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity android:name=".DepthControlActivity"
+            android:screenOrientation="nosensor">
+        </activity>
+        <activity android:name=".ControlActivity"
+            android:screenOrientation="nosensor">
+        </activity>
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +34,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:screenOrientation="nosensor">
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

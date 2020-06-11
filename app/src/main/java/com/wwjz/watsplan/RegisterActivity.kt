@@ -115,14 +115,14 @@ class RegisterActivity : AppCompatActivity() {
 
                                 uploadTask
                                     .addOnFailureListener{
-                                        Snackbar.make(thisView, "Upload Fail",
+                                        Snackbar.make(thisView, "Cloud Sync Fail",
                                             Snackbar.LENGTH_LONG)
                                             .setBackgroundTint(Color.BLACK)
                                             .setTextColor(Color.parseColor("#FFD54F"))
                                             .show()
                                     }
                                     .addOnSuccessListener {
-                                        Snackbar.make(thisView,"Upload Success",
+                                        Snackbar.make(thisView,"Cloud Sync Succeed",
                                             Snackbar.LENGTH_LONG)
                                             .setBackgroundTint(Color.BLACK)
                                             .setTextColor(Color.parseColor("#FFD54F"))
