@@ -37,7 +37,6 @@ class DepthControlActivity : AppCompatActivity() {
                 Snackbar.make(writeToDepthButton,"Breadth and Depth Requirement successfully written!", Snackbar.LENGTH_LONG).show()
             }
             .addOnFailureListener { e ->
-                Log.w("sss", "Error writing document", e)
                 Snackbar.make(writeToDepthButton,"Error writing document", Snackbar.LENGTH_LONG).show()
             }
 

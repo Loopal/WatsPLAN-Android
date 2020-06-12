@@ -110,8 +110,7 @@ class MainActivity : AppCompatActivity() {
                     faculties.add(document.id)
                 }
             }
-            .addOnFailureListener { exception ->
-                Log.w("qq", "Error getting documents: ", exception)
+            .addOnFailureListener {
             }
 
         val fadapter = ArrayAdapter<String>(
@@ -135,8 +134,7 @@ class MainActivity : AppCompatActivity() {
                         programs.add(document.id)
                     }
                 }
-                .addOnFailureListener { exception ->
-                    Log.w("qq", "Error getting documents: ", exception)
+                .addOnFailureListener {
                 }
 
             val padapter = ArrayAdapter<String>(
@@ -160,8 +158,8 @@ class MainActivity : AppCompatActivity() {
                         options.add(document.id)
                     }
                 }
-                .addOnFailureListener { exception ->
-                    Log.w("qq", "Error getting documents: ", exception)
+                .addOnFailureListener {
+
                 }
 
             val oadapter = ArrayAdapter<String>(
@@ -258,8 +256,7 @@ class MainActivity : AppCompatActivity() {
                                 //println(mAlertDialog.term_and_condition.text)
                             }
                         }
-                        .addOnFailureListener { exception ->
-                            Log.w("qq", "Error getting documents: ", exception)
+                        .addOnFailureListener {
                         }
 
                     /*mAlertDialog.term_dialog_back.setOnClickListener {

@@ -32,7 +32,6 @@ class ControlActivity : AppCompatActivity() {
                 Snackbar.make(submitButton,"DocumentSnapshot successfully written!",Snackbar.LENGTH_LONG).show()
             }
             .addOnFailureListener { e ->
-                Log.w("sss", "Error writing document", e)
                 Snackbar.make(submitButton,"Error writing document",Snackbar.LENGTH_LONG).show()
             }
 
