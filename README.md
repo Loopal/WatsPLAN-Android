@@ -1,5 +1,5 @@
 # WatsPLAN 
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+[![License](https://img.shields.io/badge/license-MIT-green)](http://badges.mit-license.org)
 [![Build Status](https://travis-ci.org/wallabag/android-app.svg?branch=master)](https://travis-ci.org/wallabag/android-app)
 > WatsPLAN helps UWaterloo students check their program requirements.
 
