@@ -36,7 +36,7 @@ WatsPLAN is a free and open source project developed by UW students for UW stude
 ---
 ## License
 
-[![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
+[![License](https://img.shields.io/badge/license-MIT-green)](http://badges.mit-license.org)
 
 - **[MIT license](http://opensource.org/licenses/mit-license.php)**
 - Copyright 2020 © Loopal
