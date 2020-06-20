@@ -33,6 +33,7 @@ WatsPLAN is a free and open source project developed by UW students for UW stude
 
 ### Contributing on code
 - **Fork repo and submit a pull request**
+- **Report any bugs and make suggestions via submitting issue**
 ---
 ## License
 
