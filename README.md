@@ -23,6 +23,12 @@
   - **Cloud synchronization**
   - **Supports both Android and IOS**
 ---
+  ## TODOs
+  - **Support more programs/Majors**
+  - **Support Minors**
+  - **Support Double Degree and Double Majors**
+  - **More interactive checklist design**
+---
 ## Contributing
 WatsPLAN is a free and open source project developed by UW students for UW students. Any contributions are appreciated and welcomed. Here are a few ways you can help:
 
