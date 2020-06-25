@@ -10,12 +10,17 @@
 ### WatsPLAN is here to rescue!
 - **Select your program and option, or load existing local data, then jump to your customized degree checklist in no time!**
 
-<a href="https://play.google.com/store/apps/details?id=com.wwjz.watsplan&hl=en"><img src="https://imgur.com/1zXn3iM.png" title="WatsPLAN" alt="WatsPLAN 1"></a>
+<a href="https://play.google.com/store/apps/details?id=com.wwjz.watsplan&hl=en">
+    <img src="https://imgur.com/1zXn3iM.png" title="WatsPLAN" alt="WatsPLAN 1">
+</a>
 <a href="https://play.google.com/store/apps/details?id=com.wwjz.watsplan&hl=en">
     <img alt="Get it on Google Play"
         height="80"
-        src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png" />
-</a>  
+        src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" />
+</a> 
+<a href="https://apps.apple.com/ca/app/watsplan/id1519700702" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Download_on_the_App_Store_Badge.svg/1024px-Download_on_the_App_Store_Badge.svg.png" alt="Download on the App Store" height="80">
+</a>
 
 ---
   ## Features
