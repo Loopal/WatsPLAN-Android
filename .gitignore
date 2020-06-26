@@ -78,7 +78,7 @@ fastlane/readme.md
 vcs.xml
 
 # lint
-lint/intermediates/
+lint/intermediates/8
 lint/generated/
 lint/outputs/
 lint/tmp/
